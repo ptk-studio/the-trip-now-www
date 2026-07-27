@@ -235,6 +235,24 @@
     font-weight: 600;
   }
   .imprint .dot { color: var(--coral); margin: 0 0.5em; }
+
+  .studio {
+    margin-top: 0.9rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .studio a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .studio a:hover { color: var(--coral); border-color: var(--coral); }
+  .studio a:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
 </style>
 </head>
 <body>
@@ -268,6 +286,8 @@
     </ul>
 
     <p class="imprint">Wherever you're headed <span class="dot">&bull;</span> Travel together</p>
+
+    <p class="studio">A <a href="https://ptk-studio.com" target="_blank" rel="noopener">PTK Studio</a> Production</p>
   </main>
 </body>
 </html>
