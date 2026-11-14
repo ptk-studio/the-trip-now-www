@@ -3,5 +3,6 @@
 # Add any new internal folder or file to this list in the same PR that adds it.
 exclude:
   - proposals/
+  - books/
   - README.md
   - HEALTH-CHECK.md

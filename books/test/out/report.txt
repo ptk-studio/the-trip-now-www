@@ -1,0 +1,12 @@
+interior.pdf: 24 pages, 6.000 x 9.000 in (OK)
+  KDP paperback minimum 24 pages: OK
+  fonts embedded: yes (Noto-Sans, Noto-Sans-Bold, Noto-Serif, Noto-Serif-Bold)
+  image images/day1-old-quarter.png: 1920x1080px -> 404 dpi at 4.75 in wide (OK)
+  image images/day2-temple.png: 1920x1080px -> 404 dpi at 4.75 in wide (OK)
+  image images/day3-bay.png: 1920x1080px -> 404 dpi at 4.75 in wide (OK)
+  image images/cover.png: 1080x1920px -> 173 dpi at 6.25 in wide (below 300 dpi)
+cover.pdf: 12.3040 x 9.2500 in; spine 0.054 in for 24 pages on white paper (expected 12.3040 x 9.2500: OK)
+  spine text: not allowed under 80 pages (KDP), spine left plain
+book.epub: EPUBCheck exit 0
+  No errors or warnings detected.
+  Messages: 0 fatals / 0 errors / 0 warnings / 0 infos

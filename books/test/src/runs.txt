@@ -1,0 +1,9 @@
+chapter|task_run|asset|credits|cost_usd
+01-intro|xOuVxQQRCB1DKCSlzqzJS|a-grYmlODZ0ZheNQ18kEU|5|0.012654
+02-day1|7Rar_GIhEPh4Vy8JYDB1r|J4JtwOFVJQ36aSSCmMUu1|5|0.017378
+03-day2|GrmZpRMOfqNPrmcSuwuzz|443KywXsJ4jk-mKvfh-sr|5|0.019368
+04-day3|3aFgQXaHuMYy8AMYV80w0|d2lIJkoSAX_uhzvlHFMn_|5|0.01728
+05-practical|GxCMB-blPTEE7iM3126vQ|BtQtfqnUuUG8bjJFT57Xm|5|0.014082
+06-food|kbzV1Ur0sRBhMM1FQRmao|gtpv_nx7QmmwGww0p4SZP|5|0.012094
+07-packing|uivQipC25ccSePbnR7d36|BKlCeteEZRf2iKwbShQVa|5|0.009184
+06-food-v2|Cs2rQVnhHBT8dm3u-ipBD|YxvyyeJHbw3qhznajJS4c|5|0.011086
