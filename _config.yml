@@ -1,0 +1,6 @@
+# GitHub Pages builds this repo with Jekyll and publishes everything not
+# excluded here. Internal docs live in the repo but must never be served.
+# Add any new internal folder or file to this list in the same PR that adds it.
+exclude:
+  - proposals/
+  - README.md
