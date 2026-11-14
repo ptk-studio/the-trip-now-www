@@ -111,7 +111,7 @@ It keeps one row per book in a project table, and each step claims rows by
 | 6 | Build the files | **book-builder-task** | `BUILT` |
 | 7 | Listing copy | **kdp-listing-task** | `LISTING_READY` |
 | 8 | Review against the checklist (facts, layout, spelling, disclosure) | manual: the manager | `APPROVED` |
-| 9 | Publish on KDP | **manual by Thomas** (KDP has no publishing API) | `PUBLISHED` |
+| 9 | Publish on KDP from the upload packet | **the worker in Thomas's signed-in Chrome**, after his per-title yes (see "Publishing") | `PUBLISHED` |
 
 ### First instance: `[Guides1] TheTripNow Pocket Itineraries`
 
@@ -124,6 +124,34 @@ It keeps one row per book in a project table, and each step claims rows by
 **All code goes through reviewed 88eggs-backend PRs, one task each.** Each
 task comes with tests and a sample run.
 
+## Publishing (KDP has no API)
+
+Amazon KDP has no public API for publishing or for sales reports, so
+there's no 88eggs connector. Storing Thomas's KDP password in 88eggs to
+script the site is ruled out: it risks the account, and agents never
+handle his password. Instead:
+
+- **The upload packet:** step 7 produces each book's files and every
+  listing field, ready to paste: title, subtitle, description, keywords,
+  categories, price, and the AI-disclosure answer.
+- **Signing in:** Thomas signs in to kdp.amazon.com in his own Chrome and
+  handles any 2-step verification or CAPTCHA himself.
+- **The worker publishes** (web-worker1, Claude in Chrome) in that
+  signed-in session:
+  - **Fills** the KDP forms from the packet and uploads the files.
+  - **Checks** the KDP previewer and its error report, and posts a
+    screenshot on the book's issue.
+  - **Clicks "Publish"** only after Thomas's yes in the worker's session,
+    naming the exact titles (e.g. "publish Kyoto in 3 Days and Lisbon in
+    3 Days"). A yes covers only the titles it names.
+- **Decisions that stay with Thomas,** each a separate yes:
+  - account setup, tax and bank details;
+  - accepting KDP terms;
+  - KDP Select (Kindle exclusivity) enrollment;
+  - prices outside the approved range.
+- **Sales reports:** the worker reads KDP Reports read-only in the same
+  signed-in session, for the metrics review and the `Revenue:` line.
+
 ## What needs Thomas
 
 - **Approve this proposal**, or change the format, prices or pilot size.
@@ -133,8 +161,8 @@ task comes with tests and a sample run.
   88eggs credits and OpenRouter. They're measured on the first guide, and
   the pilot stops if the cap is reached. Proposed: **$15** for the 3 pilot
   titles.
-- **Publishing each title** on KDP (step 8): he uploads the approved files,
-  or tells us how he wants that step done.
+- **Publishing:** sign in to KDP in his Chrome, then a yes per title (named)
+  in the worker's session. The worker fills the forms and clicks Publish.
 
 ## Milestones
 
@@ -147,7 +175,7 @@ task comes with tests and a sample run.
    project can copy it.
 4. **First instance:** `Guides1` in TheTripNow. The first guide is built
    and reviewed, and its real cost is recorded.
-5. **Pilot:** 3 approved guides, published by Thomas.
+5. **Pilot:** 3 approved guides, published by the worker after Thomas's yes.
 6. **30-day check:** units, royalties and reviews per title. Then decide:
    stop, fix, or scale (for example, 2 titles a week).
 
