@@ -1,7 +1,7 @@
 # Marketing and promotion plan: TheTripNow
 
 Issue: [#6](https://github.com/ptk-studio/the-trip-now-www/issues/6). Written 2026-11-14 by web-worker1 (Claude).
-Status: **pending**. The manager approves it. **Every action here is the worker's alone.** Anything that needs
+Status: **approved** (prj-manager1, 2026-11-14 11:23 ET). **Every action here is the worker's alone.** Anything that needs
 Thomas is at the end, under "Not in this plan".
 
 ## TL;DR
@@ -72,7 +72,7 @@ Free only. Each action is something the worker can do and verify.
 | 2 | **Store SEO fix:** a per-store `<title>` and description ("The Trip Now: travel posters, mugs and tees for …"); per-tag titles ("Vietnam travel posters & mugs, The Trip Now"); canonical links; `robots.txt` served (not redirected) for the shop host; a sitemap of the store and its tag pages | `88eggs-frontend` PR (manager review) | 3–5 | Search is the only free traffic that compounds. Today Google sees 748 products under the title "88eggs" | A signed-out fetch shows the new title, description and canonical; robots.txt returns 200; the sitemap lists the tag pages; Search Console later (needs Thomas, below) |
 | 3 | **Collections by style and place:** turn the top tags (UkiyoE, ArtDeco, WPAStyle; Vietnam, NewZealand, Galápagos, Dolomites, Patagonia) into linked collection pages with an intro line each | `88eggs-frontend` store page, or tag descriptions in the 88eggs project | 2–3 | Gives each customer a landing page that matches a search | The tag pages render with an intro and a unique title |
 | 4 | **thetripnow.com as a landing page:** replace the links-only page with 6–8 featured products (posters and mugs first), each with UTM links (`utm_source=thetripnow&utm_medium=site&utm_campaign=landing`), plus links to the collections | this repo, PR | 2 | Gives Instagram's bio link somewhere to land that sells | Page live; each link returns 200 and carries UTMs |
-| 5 | **Instagram captions point at a product:** Meme1 #0.0's caption step ends with a short call to action and a tracked store link (`utm_source=instagram&utm_medium=social&utm_campaign=meme1`) for the place in the image | 88eggs Meme1 caption prompt (a pipeline content change, recorded on #6) | 1 | Turns the reborn feed into store visits | The next captions contain the link; GA4 shows `utm_source=instagram` |
+| 5 | **Instagram captions point at the bio link:** Meme1 #0.0's caption ends with a short call to action, "Prints and mugs of <place>: link in bio". Caption URLs aren't clickable, so there's no link in the caption. The bio link is already **thetripnow.com** (action 4's landing page; read 2026-11-14) | 88eggs Meme1 caption prompt (a pipeline content change, recorded on #6) | 1 | Turns the reborn feed into landing-page visits, then store visits | The next captions end with the line; GA4 shows thetripnow.com → store visits with `utm_source=thetripnow` |
 | 6 | **Analytics on thetripnow.com:** add the same GA4 measurement as the store, so the landing page's clicks are counted | this repo, PR | 0.5 | Measurement for #4 | GA4 Realtime shows a thetripnow.com hit |
 
 **Not ranked (wrong channel for now):** Pinterest. It's the strongest channel for posters, but it needs a new
@@ -82,7 +82,7 @@ account, which isn't in this plan.
 
 - **Store visits:** GA4 property 564337074, page path `/store/the-trip-now*`, weekly. Halve it until #328
   is fixed.
-- **Traffic by channel:** GA4 sessions by `utm_source` (`instagram`, `thetripnow`).
+- **Traffic by channel:** GA4 sessions by `utm_source`. Instagram traffic arrives through the bio link → thetripnow.com, so it shows as `utm_source=thetripnow` on the store, plus thetripnow.com's own referrer (`instagram.com`) once action 6 is in.
 - **Product clicks out to Printify:** not counted today. The store's outbound clicks to
   `the-trip-now.printify.me` could be sent as a GA4 event (`select_item`) in the action 2 PR.
 - **Orders and revenue:** only Printify can say. Until Thomas allows a Printify reading, record "unknown".
@@ -98,7 +98,7 @@ account, which isn't in this plan.
 | Nov 15 | Instagram posting again (#324) and new products after the sync (#3), both verified |
 | Nov 20 | Action 2, the store SEO fix, PR merged and verified signed out |
 | Nov 24 | Action 4, the thetripnow.com landing page, and action 6, its analytics, merged |
-| Nov 27 | Action 5, Instagram captions with tracked links, live on new posts |
+| Nov 27 | Action 5, the "link in bio" call to action, live on new posts |
 | Dec 1 | Action 3, collection pages for 3 styles and 5 places |
 | Every Monday from Nov 17 | The weekly reading on #6 |
 | Dec 14 | 30-day review: visits, clicks out, orders if known. Re-rank the actions |
