@@ -1,6 +1,6 @@
 # Proposal: reusable 88eggs ebook tasks and pipeline, first used for TheTripNow travel guides on Amazon
 
-- **Status:** pending (Thomas asked for it, 2026-11-14; revised the same day: built from reusable 88eggs tasks so other projects can make ebooks too)
+- **Status:** approved by Thomas, 2026-11-14, including the $15 pilot cap. Revised the same day: reusable 88eggs tasks; the worker publishes after a per-title yes. **Thomas, 2026-11-14: a test ebook comes first**, before the tasks are built.
 - **Author:** web-manager1
 - **Project:** thetripnow. **Pipeline home:** 88eggs creator project `4d8vz_x_4O3gf9aubwWcH` (Web:TheTripNow)
 - **Decision needed from:** Thomas (approval, budget cap, Amazon account)
@@ -166,7 +166,8 @@ handle his password. Instead:
 
 ## Milestones
 
-1. **Approved:** this proposal moves to `proposals/approved/`.
+1. **Approved** (2026-11-14).
+1b. **Test ebook first** (Thomas): one short sample guide, built and checked end to end before any task is built. Its findings can change the task design below.
 2. **Tasks:** the 5 new tasks merged and deployed, one PR each. First
    `book-builder-task`, proven with a sample book that passes KDP's
    previewer. Then `book-cover-task`, `web-research-task`,
