@@ -1,11 +1,27 @@
-# Proposal: an 88eggs pipeline that makes TheTripNow travel guides to sell on Amazon
+# Proposal: reusable 88eggs ebook tasks and pipeline, first used for TheTripNow travel guides on Amazon
 
-- **Status:** pending (Thomas asked for it, 2026-11-14)
+- **Status:** pending (Thomas asked for it, 2026-11-14; revised the same day: built from reusable 88eggs tasks so other projects can make ebooks too)
 - **Author:** web-manager1
 - **Project:** thetripnow. **Pipeline home:** 88eggs creator project `4d8vz_x_4O3gf9aubwWcH` (Web:TheTripNow)
 - **Decision needed from:** Thomas (approval, budget cap, Amazon account)
 
 ## Goal
+
+**Two goals:**
+1. **Reusable ebook building blocks in 88eggs:** generic tasks and a
+   pipeline template that *any* project can use to make and sell ebooks.
+   Thomas, 2026-11-14: "built with 88eggs tasks so that we can create
+   ebooks to sell for other projects". Nothing in the tasks is specific to
+   travel or to TheTripNow.
+2. **The first use:** TheTripNow travel guides on Amazon KDP, described
+   below.
+
+**Later uses** of the same tasks, each its own decision:
+- all-printable planners or workbooks;
+- songbooks or lyric books for the music channels;
+- low-content journals.
+
+**The first use, in detail:**
 
 A second revenue line for TheTripNow: short, accurate travel guides sold on
 Amazon KDP, as a Kindle ebook and a paperback. 88eggs produces them on a
@@ -54,31 +70,59 @@ review them harshly. This pipeline only works if every guide is
 - **Start small:** a pilot of 3 titles. We decide on volume only after real
   reviews and sales.
 
-## Pipeline design (88eggs)
+## Design: reusable tasks + a pipeline template (88eggs)
 
-A data table **`Guides1`** holds one row per guide. Each step claims rows
-by `status`, like Songs1. All steps are on existing 88eggs tasks unless
-marked **new**.
+### New generic 88eggs tasks
+
+They're built like the existing task catalog (`ptk-studio/*-task` in
+`public.tasks`, e.g. text-generator, image-generator, table-update-row).
+Each takes plain inputs and knows nothing about any one project.
+
+| Task | Inputs | Outputs |
+|---|---|---|
+| **`ptk-studio/web-research-task`** | questions or a fact list; optional allowed domains | an answer per fact, with source URL, quote and fetch date; "not found" when unsourced |
+| **`ptk-studio/fact-check-task`** | draft text and the sources from web-research | each claim marked confirmed or unconfirmed, with the source; pass/fail |
+| **`ptk-studio/book-builder-task`** | Markdown chapters, images, metadata (title, author, ISBN or none), format settings (trim size, bleed, fonts, ebook and/or paperback) | Kindle EPUB, print interior PDF, cover PDF (spine width from page count, KDP paper type); a validation report against KDP file rules |
+| **`ptk-studio/book-cover-task`** | front art, title text, back text, spine width | a full wrap cover PDF and a Kindle front-cover JPG at KDP sizes |
+| **`ptk-studio/kdp-listing-task`** | book summary, audience, category hints | listing copy: description, 7 keywords, 2–3 categories, price suggestion, AI-disclosure answer. Drafted for review, never submitted |
+
+**Existing tasks reused:** text-generator (Claude Sonnet 5.5),
+image-generator (Nano Banana), table-list/get/insert/update-row,
+start-pipeline, email-sender (optional "ready for review" notice).
+
+### The pipeline template: `Ebook1`
+
+A template any creator project can copy. A project fills in only:
+- a **book-type brief:** genre, length, voice, page layout, which sections
+  need sourced facts;
+- a **style** for art.
+
+It keeps one row per book in a project table, and each step claims rows by
+`status`, like Songs1:
 
 | # | Step | Task | Row status after |
 |---|---|---|---|
-| 0 | Pick destinations: seasonal demand, low competition, fits the brand | text-generator (Claude Sonnet 5.5) | `IDEA` |
-| 1 | Outline: days, sections, the list of facts to source | text-generator | `OUTLINE_READY` |
-| 2 | Source facts: official sites and transit authorities, with URL and date per fact | **new: web research step** (88eggs has no web-fetch task today) | `SOURCED` |
-| 3 | Write the chapters from the outline and sourced facts only | text-generator | `DRAFTED` |
-| 4 | Fact check: every claim against the sources; unconfirmed claims are listed | text-generator, second pass | `CHECKED`, or back to `SOURCED` |
-| 5 | Cover and section art in the TheTripNow style (no maps of real streets) | image-generator (Nano Banana) | `ART_READY` |
-| 6 | Build files: Kindle EPUB, print interior PDF (6×9, bleed), cover PDF with spine width from page count | **new: book-builder task** | `BUILT` |
-| 7 | Review: the manager checks the files against a checklist (facts, layout, spelling, disclosure) | manual | `APPROVED` |
-| 8 | Publish on KDP | **manual by Thomas** (KDP has no publishing API) | `PUBLISHED` |
+| 0 | Ideas from the brief (demand, competition, fit) | text-generator | `IDEA` |
+| 1 | Outline, plus the list of facts to source | text-generator | `OUTLINE_READY` |
+| 2 | Source the facts (skipped when the brief needs none) | **web-research-task** | `SOURCED` |
+| 3 | Write the chapters from the outline and sources only | text-generator | `DRAFTED` |
+| 4 | Fact check; failures go back to `SOURCED` | **fact-check-task** | `CHECKED` |
+| 5 | Art: cover and section images | image-generator → **book-cover-task** | `ART_READY` |
+| 6 | Build the files | **book-builder-task** | `BUILT` |
+| 7 | Listing copy | **kdp-listing-task** | `LISTING_READY` |
+| 8 | Review against the checklist (facts, layout, spelling, disclosure) | manual: the manager | `APPROVED` |
+| 9 | Publish on KDP | **manual by Thomas** (KDP has no publishing API) | `PUBLISHED` |
 
-**New code** (88eggs-backend, through reviewed PRs):
-1. **`book-builder-task`:** Markdown and images in; EPUB, interior PDF and
-   cover PDF out. It checks KDP's file rules (trim, bleed, margins, page
-   count limits).
-2. **A web research step**, so step 2 can fetch and cite pages. This could
-   be a model with web access through OpenRouter, or a fetch task. Its
-   design comes with the first implementation issue.
+### First instance: `[Guides1] TheTripNow Pocket Itineraries`
+
+- Copied from `Ebook1` into creator project `4d8vz_x_4O3gf9aubwWcH`.
+- **Brief:** pocket itinerary format; facts required for every venue, price
+  and transport detail.
+- **Art:** the TheTripNow style.
+- **Format:** 6×9 paperback plus Kindle.
+
+**All code goes through reviewed 88eggs-backend PRs, one task each.** Each
+task comes with tests and a sample run.
 
 ## What needs Thomas
 
@@ -95,13 +139,16 @@ marked **new**.
 ## Milestones
 
 1. **Approved:** this proposal moves to `proposals/approved/`.
-2. **Code:** the `book-builder-task` and web-research PRs merged and
-   deployed, with a test build of one sample book that passes KDP's
-   previewer.
-3. **Pipeline:** the `Guides1` table and steps 0–7 in 88eggs. The first
-   guide is built and reviewed, and its real cost is recorded.
-4. **Pilot:** 3 approved guides, published by Thomas.
-5. **30-day check:** units, royalties and reviews per title. Then decide:
+2. **Tasks:** the 5 new tasks merged and deployed, one PR each. First
+   `book-builder-task`, proven with a sample book that passes KDP's
+   previewer. Then `book-cover-task`, `web-research-task`,
+   `fact-check-task` and `kdp-listing-task`.
+3. **Template:** the `Ebook1` pipeline template, documented so another
+   project can copy it.
+4. **First instance:** `Guides1` in TheTripNow. The first guide is built
+   and reviewed, and its real cost is recorded.
+5. **Pilot:** 3 approved guides, published by Thomas.
+6. **30-day check:** units, royalties and reviews per title. Then decide:
    stop, fix, or scale (for example, 2 titles a week).
 
 ## Metrics
@@ -118,4 +165,4 @@ marked **new**.
 - Other marketplaces.
 - Translated editions.
 
-Each would be its own proposal later.
+Each would be its own proposal later. So would using `Ebook1` in another project.
