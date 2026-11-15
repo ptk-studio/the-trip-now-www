@@ -1,0 +1,23 @@
+{
+  "title": "Hanoi & Hạ Long Bay in 3 Days",
+  "subtitle": "A TheTripNow pocket itinerary",
+  "author": "TheTripNow",
+  "lang": "en",
+  "rights": "© 2026 TheTripNow. Test edition – not for sale.",
+  "trim_in": [6, 9],
+  "paper": "white",
+  "spine_in_per_page": {"white": 0.002252, "cream": 0.0025},
+  "bleed_in": 0.125,
+  "cover_image": "images/cover.png",
+  "back_blurb": "Three days, one city, one bay. Walk Hanoi's Old Quarter trade streets, see the Temple of Literature and a water puppet show, then spend a day among the limestone islands of Hạ Long Bay. Practical, checked and pocket-sized.",
+  "chapters": [
+    {"file": "01-intro", "image": null},
+    {"file": "02-day1", "image": "images/day1-old-quarter.png"},
+    {"file": "03-day2", "image": "images/day2-temple.png"},
+    {"file": "04-day3", "image": "images/day3-bay.png"},
+    {"file": "05-practical", "image": null},
+    {"file": "06-food", "image": null},
+    {"file": "07-packing", "image": null}
+  ],
+  "planner_pages": 5
+}
