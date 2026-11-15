@@ -7,6 +7,7 @@ Markdown and the images it produces:
   out/book.epub      Kindle/reflowable EPUB 3 (pandoc)
   out/interior.pdf   print interior, 6x9 in, KDP margins, fonts embedded (WeasyPrint)
   out/cover.pdf      wrap cover: back + spine + front, with bleed (WeasyPrint)
+  out/kindle-cover.jpg  front panel with title, for the KDP Kindle cover and the EPUB cover
   out/report.txt     checks: EPUBCheck, page size, page count, fonts, image dpi, spine
 
 Tools (all open source): pandoc, WeasyPrint, EPUBCheck, poppler (pdfinfo, pdffonts).
@@ -170,7 +171,7 @@ def build_epub() -> Path:
     epub = OUT / "book.epub"
     r = run(["pandoc", "-f", "markdown-tex_math_dollars", str(src), "-o", str(epub), "--toc", "--split-level=1",
              "--css", str(STYLE / "epub.css"),
-             "--epub-cover-image", epub_image(ROOT / CFG["cover_image"]),
+             "--epub-cover-image", epub_image(OUT / "kindle-cover.jpg"),
              "--metadata", f"lang={CFG['lang']}",
              "--metadata", f"rights={CFG['rights']}",
              "--metadata", f"subtitle={CFG['subtitle']}"])
@@ -216,6 +217,33 @@ body {{ margin: 0; font-family: 'Noto Sans'; }}
     return pdf, spine
 
 
+# ---------------------------------------------------------------- kindle cover
+def build_kindle_cover(spine: float) -> Path:
+    """The Kindle/EPUB front cover: the paperback's front panel (title and art), cut at the trim.
+    KDP shows this as the Kindle cover, so it must carry the title (the bare photo did not)."""
+    dpi = 300
+    full = OUT / "cover-full"
+    r = run(["pdftoppm", "-r", str(dpi), "-jpeg", "-jpegopt", "quality=92", "-singlefile", str(OUT / "cover.pdf"), str(full)])
+    if r.returncode:
+        sys.exit(r.stderr)
+    x = round((BLEED + TRIM_W + spine) * dpi)
+    y = round(BLEED * dpi)
+    w, h = round(TRIM_W * dpi), round(TRIM_H * dpi)
+    dst = OUT / "kindle-cover.jpg"
+    r = run(["sips", "-c", str(h), str(w), "--cropOffset", str(y), str(x), str(full) + ".jpg", "--out", str(dst)])
+    if r.returncode:
+        sys.exit(r.stderr)
+    (OUT / "cover-full.jpg").unlink(missing_ok=True)
+    # Guard (Big Sur 2026-11-15 went live with a bare-photo Kindle cover): the front panel we cut must carry the title.
+    pts = 72
+    txt = run(["pdftotext", "-x", str(round((BLEED + TRIM_W + spine) * pts)), "-y", str(round(BLEED * pts)),
+               "-W", str(round(TRIM_W * pts)), "-H", str(round(TRIM_H * pts)), str(OUT / "cover.pdf"), "-"]).stdout
+    first = CFG["title"].split()[0:3]
+    if not all(w.lower() in txt.lower() for w in first):
+        sys.exit(f"kindle cover check FAILED: the front panel has no title text (looked for {first!r})")
+    return dst
+
+
 # ---------------------------------------------------------------- checks
 def pdf_info(pdf: Path) -> dict:
     out = run(["pdfinfo", str(pdf)]).stdout
@@ -234,7 +262,7 @@ def fonts_embedded(pdf: Path) -> tuple[bool, str]:
 
 
 def main():
-    for tool in ("pandoc", "weasyprint", "epubcheck", "pdfinfo", "pdffonts"):
+    for tool in ("pandoc", "weasyprint", "epubcheck", "pdfinfo", "pdffonts", "pdftoppm", "pdftotext", "sips"):
         need(tool)
     OUT.mkdir(exist_ok=True)
     report = []
@@ -265,6 +293,11 @@ def main():
         f"{'OK' if abs(cinfo['w_in'] - want_w) < 0.01 else 'MISMATCH'})",
         f"  spine text: {'allowed' if info['pages'] > 79 else 'not allowed under 80 pages (KDP), spine left plain'}",
     ]
+
+    kc = build_kindle_cover(spine)
+    kw, kh = image_px(kc)
+    report.append(f"kindle-cover.jpg: {kw}x{kh}px, front panel; title text found on it: OK (upload this as the KDP Kindle cover; "
+                  f"{'OK' if kh >= 2500 else 'under 2500 px tall'})")
 
     epub = build_epub()
     r = run(["epubcheck", str(epub)])
