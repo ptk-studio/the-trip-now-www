@@ -10,7 +10,7 @@ interior.pdf: 27 pages, 6.000 x 9.000 in (OK)
   image images/cover.jpg: 2465x3648px -> 394 dpi at 6.25 in wide (OK)
 cover.pdf: 12.3108 x 9.2500 in; spine 0.0608 in for 27 pages on white paper (expected 12.3108 x 9.2500: OK)
   spine text: not allowed under 80 pages (KDP), spine left plain
-book.epub: EPUBCheck exit 0
+book.epub: 1.03 MB (OK); EPUBCheck exit 0
   No errors or warnings detected.
   Messages: 0 fatals / 0 errors / 0 warnings / 0 infos
 back page: https://thetripnow.com/ -> HTTP 200 (OK); EPUB link https://thetripnow.com/?utm_source=book&utm_medium=print&utm_campaign=big-sur; print shows 'thetripnow.com'

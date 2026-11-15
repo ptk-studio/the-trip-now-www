@@ -140,6 +140,21 @@ def build_interior() -> Path:
 
 
 # ---------------------------------------------------------------- EPUB
+def epub_image(path) -> str:
+    """For the EPUB only: a downscaled JPEG copy when book.json sets epub_image_max_px (print keeps the originals)."""
+    mx = CFG.get("epub_image_max_px")
+    if not mx:
+        return str(path)
+    path = Path(path)
+    dst = OUT / "epub-img" / (path.stem + ".jpg")
+    dst.parent.mkdir(exist_ok=True)
+    r = run(["sips", "-Z", str(mx), "--setProperty", "format", "jpeg",
+             "--setProperty", "formatOptions", str(CFG.get("epub_jpeg_quality", 70)), str(path), "--out", str(dst)])
+    if r.returncode:
+        sys.exit(r.stderr)
+    return str(dst)
+
+
 def build_epub() -> Path:
     md = [f"% {CFG['title']}\n% {CFG['author']}\n"]
     for ch, text in chapters():
@@ -148,12 +163,14 @@ def build_epub() -> Path:
         md.append(text)
     md.append(back_page_md(link=True))
     md.append((SRC / "sources.md").read_text(encoding="utf-8"))
+    text = "\n\n".join(md)
+    text = re.sub(r"\]\((/[^)]+\.(?:png|jpe?g))\)", lambda m: "](" + epub_image(m.group(1)) + ")", text)
     src = OUT / "book.md"
-    src.write_text("\n\n".join(md), encoding="utf-8")
+    src.write_text(text, encoding="utf-8")
     epub = OUT / "book.epub"
     r = run(["pandoc", "-f", "markdown-tex_math_dollars", str(src), "-o", str(epub), "--toc", "--split-level=1",
              "--css", str(STYLE / "epub.css"),
-             "--epub-cover-image", str(ROOT / CFG["cover_image"]),
+             "--epub-cover-image", epub_image(ROOT / CFG["cover_image"]),
              "--metadata", f"lang={CFG['lang']}",
              "--metadata", f"rights={CFG['rights']}",
              "--metadata", f"subtitle={CFG['subtitle']}"])
@@ -252,7 +269,8 @@ def main():
     epub = build_epub()
     r = run(["epubcheck", str(epub)])
     tail = [l for l in (r.stdout + r.stderr).splitlines() if re.search(r"Messages:|ERROR|FATAL|No errors", l)]
-    report += [f"book.epub: EPUBCheck exit {r.returncode}"] + [f"  {l}" for l in tail[-6:]]
+    size_mb = epub.stat().st_size / 1e6
+    report += [f"book.epub: {size_mb:.2f} MB ({'OK' if size_mb < 2 else 'over 2 MB: set epub_image_max_px'}); EPUBCheck exit {r.returncode}"] + [f"  {l}" for l in tail[-6:]]
 
     code = site_status()
     report.append(f"back page: {SITE} -> HTTP {code} ({'OK' if code == 200 else 'CHECK THE LINK'}); "
