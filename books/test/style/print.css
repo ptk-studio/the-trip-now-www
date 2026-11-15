@@ -25,3 +25,7 @@ li { margin-bottom: 3pt; }
 .planner { break-before: page; }
 .planner-row { font-family: 'Noto Sans', sans-serif; margin-bottom: 10pt; }
 .planner .line { border-bottom: 0.5pt solid #9aa; height: 0.27in; }
+
+/* standard back page */
+.back-page { text-align: center; padding-top: 2.2in; }
+.back-page .back-url { font-family: "Noto Sans"; font-weight: 700; font-size: 18pt; margin-top: 0.3in; }
