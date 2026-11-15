@@ -52,6 +52,9 @@ def reader_text(md: str) -> str:
 def chapters():
     for ch in CFG["chapters"]:
         md = reader_text((SRC / "chapters" / f"{ch['file']}.md").read_text(encoding="utf-8"))
+        if ch.get("map"):
+            # optional day map, placed at the end of the chapter (print and EPUB)
+            md += f"\n\n![Map of {ch.get('map_title', 'the day')}]({ROOT / ch['map']}){{.day-map}}\n"
         yield ch, md
 
 
@@ -229,7 +232,8 @@ def main():
         f"  fonts embedded: {'yes' if emb else 'NO'} ({names})",
     ]
 
-    for ch in [c for c in CFG["chapters"] if c["image"]] + [{"file": "cover", "image": CFG["cover_image"]}]:
+    maps = [{"file": "map", "image": c["map"]} for c in CFG["chapters"] if c.get("map")]
+    for ch in [c for c in CFG["chapters"] if c["image"]] + maps + [{"file": "cover", "image": CFG["cover_image"]}]:
         w, h = image_px(ROOT / ch["image"])
         width_in = (TRIM_W + 2 * BLEED) if ch["file"] == "cover" else TRIM_W - 1.25
         report.append(f"  image {ch['image']}: {w}x{h}px -> {w / width_in:.0f} dpi at {width_in:.2f} in wide "

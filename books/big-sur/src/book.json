@@ -24,15 +24,21 @@
     },
     {
       "file": "02-day1",
-      "image": "images/day1-cannery-row.jpg"
+      "image": "images/day1-cannery-row.jpg",
+      "map": "images/map-day1.png",
+      "map_title": "Day 1"
     },
     {
       "file": "03-day2",
-      "image": "images/day2-carmel.jpg"
+      "image": "images/day2-carmel.jpg",
+      "map": "images/map-day2.png",
+      "map_title": "Day 2"
     },
     {
       "file": "04-day3",
-      "image": "images/day3-bixby.jpg"
+      "image": "images/day3-bixby.jpg",
+      "map": "images/map-day3.png",
+      "map_title": "Day 3"
     },
     {
       "file": "05-practical",

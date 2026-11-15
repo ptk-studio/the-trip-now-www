@@ -1,11 +1,14 @@
-interior.pdf: 24 pages, 6.000 x 9.000 in (OK)
+interior.pdf: 27 pages, 6.000 x 9.000 in (OK)
   KDP paperback minimum 24 pages: OK
   fonts embedded: yes (Noto-Sans, Noto-Sans-Bold, Noto-Serif, Noto-Serif-Bold)
   image images/day1-cannery-row.jpg: 2000x1185px -> 421 dpi at 4.75 in wide (OK)
   image images/day2-carmel.jpg: 2000x1333px -> 421 dpi at 4.75 in wide (OK)
   image images/day3-bixby.jpg: 2000x1333px -> 421 dpi at 4.75 in wide (OK)
+  image images/map-day1.png: 1425x1257px -> 300 dpi at 4.75 in wide (OK)
+  image images/map-day2.png: 1425x1774px -> 300 dpi at 4.75 in wide (OK)
+  image images/map-day3.png: 1425x2174px -> 300 dpi at 4.75 in wide (OK)
   image images/cover.jpg: 2465x3648px -> 394 dpi at 6.25 in wide (OK)
-cover.pdf: 12.3040 x 9.2500 in; spine 0.054 in for 24 pages on white paper (expected 12.3040 x 9.2500: OK)
+cover.pdf: 12.3108 x 9.2500 in; spine 0.0608 in for 27 pages on white paper (expected 12.3108 x 9.2500: OK)
   spine text: not allowed under 80 pages (KDP), spine left plain
 book.epub: EPUBCheck exit 0
   No errors or warnings detected.
