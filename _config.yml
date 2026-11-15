@@ -4,5 +4,7 @@
 exclude:
   - proposals/
   - books/
+  - tools/
+  - RELEASE-CHECKS.md
   - README.md
   - HEALTH-CHECK.md
