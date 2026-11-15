@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Release checks for thetripnow (RELEASE-CHECKS.md). Read-only; no secrets.
+# Release checks for thetripnow (mochi-agent/RELEASE-CHECKS.md). Read-only; no secrets.
 #   tools/release-check.sh pre    # on the PR branch, before merge
 #   tools/release-check.sh post   # after the merge has deployed
 set -u
