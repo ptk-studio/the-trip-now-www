@@ -50,5 +50,7 @@
     }
   ],
   "planner_pages": 5,
-  "checked": "14–15 November 2026"
+  "checked": "14–15 November 2026",
+  "epub_image_max_px": 1000,
+  "epub_jpeg_quality": 70
 }
