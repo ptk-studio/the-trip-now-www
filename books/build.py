@@ -234,6 +234,13 @@ def build_kindle_cover(spine: float) -> Path:
     if r.returncode:
         sys.exit(r.stderr)
     (OUT / "cover-full.jpg").unlink(missing_ok=True)
+    # Guard (Big Sur 2026-11-15 went live with a bare-photo Kindle cover): the front panel we cut must carry the title.
+    pts = 72
+    txt = run(["pdftotext", "-x", str(round((BLEED + TRIM_W + spine) * pts)), "-y", str(round(BLEED * pts)),
+               "-W", str(round(TRIM_W * pts)), "-H", str(round(TRIM_H * pts)), str(OUT / "cover.pdf"), "-"]).stdout
+    first = CFG["title"].split()[0:3]
+    if not all(w.lower() in txt.lower() for w in first):
+        sys.exit(f"kindle cover check FAILED: the front panel has no title text (looked for {first!r})")
     return dst
 
 
@@ -255,7 +262,7 @@ def fonts_embedded(pdf: Path) -> tuple[bool, str]:
 
 
 def main():
-    for tool in ("pandoc", "weasyprint", "epubcheck", "pdfinfo", "pdffonts", "pdftoppm", "sips"):
+    for tool in ("pandoc", "weasyprint", "epubcheck", "pdfinfo", "pdffonts", "pdftoppm", "pdftotext", "sips"):
         need(tool)
     OUT.mkdir(exist_ok=True)
     report = []
@@ -289,7 +296,7 @@ def main():
 
     kc = build_kindle_cover(spine)
     kw, kh = image_px(kc)
-    report.append(f"kindle-cover.jpg: {kw}x{kh}px, front panel with title (upload this as the KDP Kindle cover; "
+    report.append(f"kindle-cover.jpg: {kw}x{kh}px, front panel; title text found on it: OK (upload this as the KDP Kindle cover; "
                   f"{'OK' if kh >= 2500 else 'under 2500 px tall'})")
 
     epub = build_epub()
