@@ -32,7 +32,7 @@ SRC, OUT, STYLE = ROOT / "src", ROOT / "out", ROOT / "style"
 CFG = json.loads((SRC / "book.json").read_text(encoding="utf-8"))
 TRIM_W, TRIM_H = CFG["trim_in"]
 BLEED = CFG["bleed_in"]
-CITE = re.compile(r"\s*\[F\d+\](\[F\d+\])*")
+CITE = re.compile(r"\s*\[(?:[A-Z]\d+|(?:STAY|EAT)-[A-Z]+)\](?:\[(?:[A-Z]\d+|(?:STAY|EAT)-[A-Z]+)\])*")
 
 
 def run(cmd, **kw):
@@ -56,7 +56,7 @@ def chapters():
 
 
 def md_to_html(md: str) -> str:
-    r = run(["pandoc", "-f", "markdown", "-t", "html5"], input=md)
+    r = run(["pandoc", "-f", "markdown-tex_math_dollars", "-t", "html5"], input=md)
     if r.returncode:
         sys.exit(r.stderr)
     return r.stdout
@@ -104,7 +104,7 @@ def build_interior() -> Path:
 <section class="title-page"><h1 class="book-title">{t}</h1>
 <p class="book-subtitle">{html.escape(CFG['subtitle'])}</p><p class="imprint">{html.escape(CFG['author'])}</p></section>
 <section class="copyright"><p>{html.escape(CFG['rights'])}</p>
-<p>Prices, opening hours and rules change. Every fact was checked on 14 November 2026; check before you go.</p></section>
+<p>Prices, opening hours and rules change. Every fact was checked on {html.escape(CFG.get('checked', '14 November 2026'))}; check before you go.</p></section>
 <section class="toc"><h1>Contents</h1><ol>"""]
     toc = []
     body = []
@@ -148,7 +148,7 @@ def build_epub() -> Path:
     src = OUT / "book.md"
     src.write_text("\n\n".join(md), encoding="utf-8")
     epub = OUT / "book.epub"
-    r = run(["pandoc", str(src), "-o", str(epub), "--toc", "--split-level=1",
+    r = run(["pandoc", "-f", "markdown-tex_math_dollars", str(src), "-o", str(epub), "--toc", "--split-level=1",
              "--css", str(STYLE / "epub.css"),
              "--epub-cover-image", str(ROOT / CFG["cover_image"]),
              "--metadata", f"lang={CFG['lang']}",
