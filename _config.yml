@@ -2,9 +2,8 @@
 # excluded here. Internal docs live in the repo but must never be served.
 # Add any new internal folder or file to this list in the same PR that adds it.
 exclude:
-  - proposals/
+  - mochi-agent/
+  - AGENTS.md
   - books/
   - tools/
-  - RELEASE-CHECKS.md
   - README.md
-  - HEALTH-CHECK.md
