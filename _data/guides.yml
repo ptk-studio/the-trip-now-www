@@ -1,0 +1,25 @@
+# Pocket Guides: the one data file for /guides/ and the home-page teaser (the-trip-now-www#35).
+# Add a guide = add an entry here. status: live | coming-soon. Newest date first on the pages.
+# formats[].price: leave empty if not confirmed on Amazon (never guess a price).
+- slug: big-sur-3-days
+  title: Big Sur in 3 Days
+  place: Big Sur, California
+  pitch: A calm three-day plan for Highway 1 - where to stop, when to go, and how to avoid the crowds, in a guide that fits in your pocket.
+  date: 2026-11-15
+  status: live
+  formats:
+    - name: Kindle edition
+      url: https://www.amazon.com/dp/B0HH7H2GGJ
+      price:
+      isbn:
+    - name: Paperback
+      url: https://www.amazon.com/dp/B0HRSS3H9K
+      price: "$9.99"
+      isbn:
+- slug: napa-valley
+  title: Napa Valley
+  place: Napa Valley, California
+  pitch: Wine country at an easy pace - towns, viewpoints and a sensible day-by-day route.
+  date: 2026-12-01
+  status: coming-soon
+  formats: []

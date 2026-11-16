@@ -7,3 +7,7 @@ exclude:
   - books/
   - tools/
   - README.md
+
+# Sitemap at /sitemap.xml (GitHub Pages supports jekyll-sitemap).
+plugins:
+  - jekyll-sitemap

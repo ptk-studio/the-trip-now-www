@@ -1,0 +1,17 @@
+{%- assign all = site.data.guides | sort: "date" | reverse -%}
+<ul class="guides">
+{%- for g in all limit: include.limit -%}
+  <li class="guide{% if g.status != 'live' %} soon{% endif %}">
+    <p class="gtitle">{{ g.title }}</p>
+    <p class="gplace">{{ g.place }}{% if g.status != 'live' %} &middot; <span class="badge">Coming soon</span>{% endif %}</p>
+    <p class="gpitch">{{ g.pitch }}</p>
+    {%- if g.status == 'live' and g.formats %}
+    <ul class="gformats">
+      {%- for f in g.formats %}
+      <li><a href="{{ f.url }}{% if f.url contains '?' %}&amp;{% else %}?{% endif %}utm_source=thetripnow&amp;utm_medium=site&amp;utm_campaign=guides-{{ g.slug }}" target="_blank" rel="noopener">{{ f.name }}{% if f.price %} &middot; {{ f.price }}{% endif %} &rarr;</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </li>
+{%- endfor -%}
+</ul>
