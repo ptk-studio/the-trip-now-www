@@ -33,7 +33,9 @@ SRC, OUT, STYLE = ROOT / "src", ROOT / "out", ROOT / "style"
 CFG = json.loads((SRC / "book.json").read_text(encoding="utf-8"))
 TRIM_W, TRIM_H = CFG["trim_in"]
 BLEED = CFG["bleed_in"]
-CITE = re.compile(r"\s*\[(?:[A-Z]\d+|(?:STAY|EAT)-[A-Z]+)\](?:\[(?:[A-Z]\d+|(?:STAY|EAT)-[A-Z]+)\])*")
+# Citation tags ([N5], [STAY-NAPA], [STAY-STHELENA-CALISTOGA]) are stripped
+# from the book. Ids may have several hyphenated words (#9: Napa & Sonoma).
+CITE = re.compile(r"\s*\[(?:[A-Z]\d+|(?:STAY|EAT)-[A-Z]+(?:-[A-Z]+)*)\](?:\[(?:[A-Z]\d+|(?:STAY|EAT)-[A-Z]+(?:-[A-Z]+)*)\])*")
 
 
 def run(cmd, **kw):
