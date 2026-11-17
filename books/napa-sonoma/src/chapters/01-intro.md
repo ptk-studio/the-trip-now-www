@@ -11,8 +11,8 @@ This guide is for first-time and returning visitors who want a relaxed, well-pac
 ## Getting there
 
 - **To Napa:** Downtown Napa is about 50 miles north of San Francisco. Allow about 1 hour on a weekday and up to about 2 hours on weekends. [N1]
-- **Two routes:** Cross the Golden Gate Bridge (US-101 → CA-37 → CA-121/CA-29), or take the Bay Bridge through the East Bay (I-80). [N1]
-- **To Sonoma:** Sonoma is about 45 miles from San Francisco, about 1–1.5 hours via US-101 → CA-37 → CA-121 → CA-12. [N1]
+- **Two routes:** Cross the Golden Gate Bridge (US-101, then CA-37, then CA-121/CA-29), or take the Bay Bridge through the East Bay (I-80). [N1]
+- **To Sonoma:** Sonoma is about 45 miles from San Francisco, about 1–1.5 hours via US-101, then CA-37, CA-121 and CA-12. [N1]
 - **Napa to Sonoma:** Plan on about 12–15 miles, or about 20–30 minutes, via CA-121/CA-12. [N1]
 - **Without a car:** Take the San Francisco Bay Ferry from the Ferry Building to Vallejo, then VINE Transit Route 11 (Napa–Vallejo Connector) into Napa. [N1]
 - **Traffic:** It varies, so avoid weekday rush hours. [N1]
