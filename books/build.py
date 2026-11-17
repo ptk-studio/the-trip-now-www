@@ -96,9 +96,13 @@ BACK_TEXT = ("More pocket itineraries, maps and travel ideas from TheTripNow, pl
              "from the places in this book.")
 
 
+# R58 (honeystorm-backend#52, 2026-11-17): every book asks for feedback on the brand site, which has the Feedback button.
+FEEDBACK_TEXT = "Tell us what you think: we read every message. Visit thetripnow.com and press the Feedback button."
+
+
 def back_page_md(link: bool) -> str:
     target = f"[thetripnow.com]({utm_url()})" if link else "**thetripnow.com**"
-    return f"# {BACK_TITLE}\n\n{BACK_TEXT}\n\n{target}\n"
+    return f"# {BACK_TITLE}\n\n{BACK_TEXT}\n\n{target}\n\n{FEEDBACK_TEXT}\n"
 
 
 # ---------------------------------------------------------------- interior PDF
@@ -120,8 +124,13 @@ def build_interior() -> Path:
     toc.append(f"<li>{BACK_TITLE}</li><li>Sources and credits</li><li>Trip planner</li>")
     parts.append("".join(toc) + "</ol></section>")
     parts += body
-    parts.append(f'<section class="chapter back-page"><h1>{BACK_TITLE}</h1><p>{html.escape(BACK_TEXT)}</p>'
-                 f'<p class="back-url">thetripnow.com</p></section>')
+    def nb(t: str) -> str:  # never hyphenate the brand or the address ("TheT-ripNow", "thet-ripnow.com")
+        t = html.escape(t)
+        for w in ("thetripnow.com", "TheTripNow"):
+            t = t.replace(w, f'<span style="hyphens: none; white-space: nowrap">{w}</span>')
+        return t
+    parts.append(f'<section class="chapter back-page"><h1>{BACK_TITLE}</h1><p>{nb(BACK_TEXT)}</p>'
+                 f'<p class="back-url">thetripnow.com</p><p>{nb(FEEDBACK_TEXT)}</p></section>')
     sources = (SRC / "sources.md").read_text(encoding="utf-8")
     parts.append(f'<section class="chapter">{md_to_html(sources)}</section>')
     for i in range(CFG["planner_pages"]):
