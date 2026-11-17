@@ -96,11 +96,14 @@ def utm_url() -> str:
 BACK_TITLE = "Plan your next trip"
 BACK_TEXT = ("More pocket itineraries, maps and travel ideas from TheTripNow, plus prints and gifts "
              "from the places in this book.")
+# R58: books get feedback through their built-in reviews; ask for one on the back page.
+REVIEW_TEXT = ("Enjoyed this guide? A short review on Amazon helps other travelers find it. "
+               "Spotted something that changed? Tell us at thetripnow.com and we'll fix it in the next edition.")
 
 
 def back_page_md(link: bool) -> str:
     target = f"[thetripnow.com]({utm_url()})" if link else "**thetripnow.com**"
-    return f"# {BACK_TITLE}\n\n{BACK_TEXT}\n\n{target}\n"
+    return f"# {BACK_TITLE}\n\n{BACK_TEXT}\n\n{target}\n\n{REVIEW_TEXT}\n"
 
 
 # ---------------------------------------------------------------- interior PDF
@@ -123,7 +126,7 @@ def build_interior() -> Path:
     parts.append("".join(toc) + "</ol></section>")
     parts += body
     parts.append(f'<section class="chapter back-page"><h1>{BACK_TITLE}</h1><p>{html.escape(BACK_TEXT)}</p>'
-                 f'<p class="back-url">thetripnow.com</p></section>')
+                 f'<p class="back-url">thetripnow.com</p><p class="review-ask">{html.escape(REVIEW_TEXT)}</p></section>')
     sources = (SRC / "sources.md").read_text(encoding="utf-8")
     parts.append(f'<section class="chapter">{md_to_html(sources)}</section>')
     for i in range(CFG["planner_pages"]):
