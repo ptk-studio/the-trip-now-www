@@ -133,9 +133,19 @@ REVIEW_TEXT = ("Enjoyed this guide? A short review on Amazon helps other travele
                "Spotted something that changed? Tell us at thetripnow.com and we'll fix it in the next edition.")
 
 
+# R58 (honeystorm-backend#52, 2026-11-17): every book asks for feedback on the brand site, which has the Feedback button.
+FEEDBACK_TEXT = "Tell us what you think: we read every message. Visit thetripnow.com and press the Feedback button."
+
+
+def back_note() -> str:
+    """The back page's last line (R58): book.json `back_note` "review" asks for an Amazon review (Napa & Sonoma, #9,
+    as the Owner approved it); the default is the feedback line (Big Sur, #44)."""
+    return REVIEW_TEXT if CFG.get("back_note") == "review" else FEEDBACK_TEXT
+
+
 def back_page_md(link: bool) -> str:
     target = f"[thetripnow.com]({utm_url()})" if link else "**thetripnow.com**"
-    return f"# {BACK_TITLE}\n\n{BACK_TEXT}\n\n{target}\n\n{REVIEW_TEXT}\n"
+    return f"# {BACK_TITLE}\n\n{BACK_TEXT}\n\n{target}\n\n{back_note()}\n"
 
 
 # ---------------------------------------------------------------- interior PDF
@@ -165,8 +175,13 @@ def build_interior() -> Path:
         glance = (SRC / f"{CFG['at_a_glance']}.md").read_text(encoding="utf-8")
         parts.append(f'<section class="chapter glance">{md_to_html(reader_text(glance))}</section>')
     parts += body
-    parts.append(f'<section class="chapter back-page"><h1>{BACK_TITLE}</h1><p>{html.escape(BACK_TEXT)}</p>'
-                 f'<p class="back-url">thetripnow.com</p><p class="review-ask">{html.escape(REVIEW_TEXT)}</p></section>')
+    def nb(t: str) -> str:  # never hyphenate the brand or the address ("TheT-ripNow", "thet-ripnow.com")
+        t = html.escape(t)
+        for w in ("thetripnow.com", "TheTripNow"):
+            t = t.replace(w, f'<span style="hyphens: none; white-space: nowrap">{w}</span>')
+        return t
+    parts.append(f'<section class="chapter back-page"><h1>{BACK_TITLE}</h1><p>{nb(BACK_TEXT)}</p>'
+                 f'<p class="back-url">thetripnow.com</p><p class="review-ask">{nb(back_note())}</p></section>')
     sources = credits_md() if CFG.get("sources_note") else (SRC / "sources.md").read_text(encoding="utf-8")
     parts.append(f'<section class="chapter credits">{md_to_html(sources)}</section>')
     if CFG.get("planners"):                # #9 re-score: one page per day, grey example hints (R100)

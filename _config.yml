@@ -1,3 +1,6 @@
+# The canonical origin (canonical URLs, og:url/og:image, the sitemap). the-trip-now-www#28.
+url: "https://thetripnow.com"
+
 # GitHub Pages builds this repo with Jekyll and publishes everything not
 # excluded here. Internal docs live in the repo but must never be served.
 # Add any new internal folder or file to this list in the same PR that adds it.
@@ -7,3 +10,10 @@ exclude:
   - books/
   - tools/
   - README.md
+  - DAILY-CHECKS.md
+  - FEEDBACK.md
+  - SCHEDULE.md
+
+# Sitemap at /sitemap.xml (GitHub Pages supports jekyll-sitemap).
+plugins:
+  - jekyll-sitemap
