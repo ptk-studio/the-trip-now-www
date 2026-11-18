@@ -1,0 +1,21 @@
+{%- comment -%} SEO basics for every page (the-trip-now-www#28, PROJECT-TYPES W4). Set in the page's front matter:
+    title, description, and optionally og_image (a 1200x630 path; default /assets/og-home.png) and og_image_alt. {%- endcomment -%}
+{%- assign canonical = page.url | replace: 'index.html', '' | prepend: site.url -%}
+{%- assign og_image = page.og_image | default: '/assets/og-home.png' | prepend: site.url -%}
+{%- assign og_alt = page.og_image_alt | default: 'The Trip Now: travel art mugs of Trolltunga, Komodo, Dubai and Antelope Canyon' -%}
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description | escape }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Trip Now">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ page.description | escape }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ og_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ og_alt | escape }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | escape }}">
+  <meta name="twitter:description" content="{{ page.description | escape }}">
+  <meta name="twitter:image" content="{{ og_image }}">
