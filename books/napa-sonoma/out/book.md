@@ -68,7 +68,7 @@ Prices, hours and reservation rules change, so check before you go.
 
 ![](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/day1-napa.jpg)
 
-*Photo: Sarah Stierch (Missvain) · CC BY 4.0 · Wikimedia Commons*
+*Photo: Daderot · CC0 · Wikimedia Commons*
 
 ## Oxbow Public Market
 
@@ -190,7 +190,7 @@ Prices, hours and reservation rules change, so check before you go.
 
 ![](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/day3-sonoma.jpg)
 
-*Photo: Sarah Stierch (Missvain) · CC BY 4.0 · Wikimedia Commons*
+*Photo: Sarah Stierch (Missvain) · CC0 · Wikimedia Commons*
 
 ## Sonoma Plaza and the Mission
 
@@ -338,9 +338,9 @@ Every fact in this guide was checked on 15 November 2026 against official and pu
 
 ## Photo credits
 
-- *Oxbow Public Market - 2021-09-24 - Sarah Stierch 01* by Sarah Stierch (Missvain), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Oxbow_Public_Market_-_2021-09-24_-_Sarah_Stierch_01.jpg
+- *Oxbow Public Market - Napa, California - DSC03187* by Daderot, [CC0](https://creativecommons.org/publicdomain/zero/1.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Oxbow_Public_Market_-_Napa,_California_-_DSC03187.JPG
 - *Robert Mondavi Winery (41671106011)* by U.S. Embassy and Consulates in Canada, Public domain, via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Robert_Mondavi_Winery_(41671106011).jpg
-- *Sonoma Plaza - September 2022 - Sarah Stierch 01* by Sarah Stierch (Missvain), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Sonoma_Plaza_-_September_2022_-_Sarah_Stierch_01.jpg
+- *Sonoma State Historic Park - November 2024 - Sarah Stierch 02* by Sarah Stierch (Missvain), [CC0](https://creativecommons.org/publicdomain/zero/1.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Sonoma_State_Historic_Park_-_November_2024_-_Sarah_Stierch_02.jpg
 - *Sonoma vineyard - July 2025 - Sarah Stierch* by Sarah Stierch (Missvain), [CC0](https://creativecommons.org/publicdomain/zero/1.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Sonoma_vineyard_-_July_2025_-_Sarah_Stierch.jpg
 
 ## Maps
