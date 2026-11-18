@@ -87,7 +87,7 @@
     var url;
     try { url = new URL(a.href, location.href); } catch (err) { return; }
     if (url.host === location.host || !/^https?:$/.test(url.protocol)) return;
-    var store = /(^|\.)shop\.88eggs\.com$|\.printify\.me$/.test(url.hostname);
+    var store = /(^|\.)shop\.88eggs\.com$|\.printify\.me$|(^|\.)amazon\.com$/.test(url.hostname);
     var name = a.querySelector('.pname');
     window.gtag('event', store ? 'store_click' : 'outbound_click', {
       link_url: url.origin + url.pathname,
