@@ -169,10 +169,20 @@ def build_interior() -> Path:
                  f'<p class="back-url">thetripnow.com</p><p class="review-ask">{html.escape(REVIEW_TEXT)}</p></section>')
     sources = credits_md() if CFG.get("sources_note") else (SRC / "sources.md").read_text(encoding="utf-8")
     parts.append(f'<section class="chapter credits">{md_to_html(sources)}</section>')
-    for i in range(CFG["planner_pages"]):
-        lines = "".join('<div class="line"></div>' for _ in range(22))
-        parts.append(f'<section class="planner"><h2>Trip planner {i + 1}</h2>'
-                     f'<p class="planner-row">Day ______ &nbsp; Date ____________</p>{lines}</section>')
+    if CFG.get("planners"):                # #9 re-score: one page per day, grey example hints (R100)
+        for p in CFG["planners"]:
+            hints = "".join(f'<div class="line example">{html.escape(x)}</div>' for x in p.get("examples", []))
+            lines = "".join('<div class="line"></div>' for _ in range(22 - len(p.get("examples", []))))
+            parts.append(f'<section class="planner"><h2>{html.escape(p["title"])}</h2>'
+                         f'<p class="planner-row">Date ____________</p>{hints}{lines}</section>')
+        for _ in range(CFG.get("notes_pages", 0)):
+            lines = "".join('<div class="line"></div>' for _ in range(24))
+            parts.append(f'<section class="planner"><h2>Notes</h2>{lines}</section>')
+    else:
+        for i in range(CFG["planner_pages"]):
+            lines = "".join('<div class="line"></div>' for _ in range(22))
+            parts.append(f'<section class="planner"><h2>Trip planner {i + 1}</h2>'
+                         f'<p class="planner-row">Day ______ &nbsp; Date ____________</p>{lines}</section>')
     doc = (f'<!doctype html><html lang="{CFG["lang"]}"><head><meta charset="utf-8">'
            f'<title>{t}</title><link rel="stylesheet" href="{STYLE / "print.css"}"></head>'
            f'<body>{"".join(parts)}</body></html>')

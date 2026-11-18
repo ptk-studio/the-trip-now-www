@@ -25,6 +25,8 @@ li { margin-bottom: 3pt; }
 .planner { break-before: page; }
 .planner-row { font-family: 'Noto Sans', sans-serif; margin-bottom: 10pt; }
 .planner .line { border-bottom: 0.5pt solid #9aa; height: 0.27in; }
+.planner .line.example { color: #9aa3a3; font-family: 'Noto Sans', sans-serif; font-style: italic; font-size: 8.5pt;
+                         line-height: 0.27in; overflow: hidden; white-space: nowrap; }
 
 /* standard back page */
 .back-page { text-align: center; padding-top: 2.2in; }

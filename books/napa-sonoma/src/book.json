@@ -49,7 +49,6 @@
       "image": null
     }
   ],
-  "planner_pages": 8,
   "checked": "15 November 2026",
   "epub_image_max_px": 1000,
   "epub_jpeg_quality": 70,
@@ -59,5 +58,29 @@
   "at_a_glance": "at-a-glance",
   "sources_note": "Every fact in this guide was checked on 15 November 2026 against official and published sources. The full list of sources is at thetripnow.com/sources/napa-sonoma.",
   "map_credit": "Maps: © OpenStreetMap contributors, available under the Open Database License (openstreetmap.org/copyright).",
-  "back_url": "thetripnow.com"
+  "back_url": "thetripnow.com",
+  "planners": [
+    {
+      "title": "Day 1 planner: Napa and Carneros",
+      "examples": [
+        "9:30 am  Oxbow Public Market · coffee and pastries",
+        "11 am  Domaine Carneros · seated tasting (booked)",
+        "Driver today: Sam (not tasting)"
+      ]
+    },
+    {
+      "title": "Day 2 planner: Up the Valley",
+      "examples": [
+        "10 am  Robert Mondavi Winery · Pioneer Tasting (booked)",
+        "1 pm  Lunch on Main Street, St. Helena"
+      ]
+    },
+    {
+      "title": "Day 3 planner: Sonoma and Glen Ellen",
+      "examples": [
+        "10 am  Sonoma Plaza and the Mission"
+      ]
+    }
+  ],
+  "notes_pages": 1
 }
