@@ -1,0 +1,87 @@
+{
+  "title": "Napa & Sonoma Wine Country in 3 Days",
+  "subtitle": "A TheTripNow pocket itinerary",
+  "author": "TheTripNow",
+  "lang": "en",
+  "rights": "© 2026 TheTripNow. All rights reserved.",
+  "trim_in": [
+    6,
+    9
+  ],
+  "paper": "white",
+  "spine_in_per_page": {
+    "white": 0.002252,
+    "cream": 0.0025
+  },
+  "bleed_in": 0.125,
+  "cover_image": "images/cover.jpg",
+  "utm_campaign": "napa-sonoma",
+  "back_blurb": "Three days in California wine country. Start in downtown Napa and Carneros, drive up the valley to St. Helena and Calistoga, then end in historic Sonoma and Jack London's Glen Ellen. Tasting fees and reservation tips, where to stay and eat, how to get around without driving after tasting, and a \"Did you know?\" at every stop. Practical, checked and pocket-sized.",
+  "chapters": [
+    {
+      "file": "01-intro",
+      "image": null
+    },
+    {
+      "file": "02-day1",
+      "image": "images/day1-napa.jpg",
+      "map": "images/map-day1.png",
+      "map_title": "Day 1"
+    },
+    {
+      "file": "03-day2",
+      "image": "images/day2-valley.jpg",
+      "map": "images/map-day2.png",
+      "map_title": "Day 2"
+    },
+    {
+      "file": "04-day3",
+      "image": "images/day3-sonoma.jpg",
+      "map": "images/map-day3.png",
+      "map_title": "Day 3"
+    },
+    {
+      "file": "05-practical",
+      "image": null
+    },
+    {
+      "file": "06-packing",
+      "image": null
+    }
+  ],
+  "checked": "15 November 2026",
+  "epub_image_max_px": 1000,
+  "epub_jpeg_quality": 70,
+  "photo_credits": true,
+  "nowrap_prices": true,
+  "toc_extras_unnumbered": true,
+  "at_a_glance": "at-a-glance",
+  "sources_note": "Every fact in this guide was checked on 15 November 2026 against official and published sources. The full list of sources is at thetripnow.com/sources/napa-sonoma.",
+  "map_credit": "Maps: © OpenStreetMap contributors, available under the Open Database License (openstreetmap.org/copyright).",
+  "back_url": "thetripnow.com",
+  "planners": [
+    {
+      "title": "Day 1 planner: Napa and Carneros",
+      "examples": [
+        "9:30 am  Oxbow Public Market · coffee and pastries",
+        "11 am  Domaine Carneros · seated tasting (booked)",
+        "Driver today: Sam (not tasting)"
+      ]
+    },
+    {
+      "title": "Day 2 planner: Up the Valley",
+      "examples": [
+        "10 am  Robert Mondavi Winery · Pioneer Tasting (booked)",
+        "1 pm  Lunch on Main Street, St. Helena"
+      ]
+    },
+    {
+      "title": "Day 3 planner: Sonoma and Glen Ellen",
+      "examples": [
+        "10 am  Sonoma Plaza and the Mission"
+      ]
+    }
+  ],
+  "notes_pages": 1,
+  "back_note": "review"
+}
