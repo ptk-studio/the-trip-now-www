@@ -75,7 +75,31 @@
     document.body.appendChild(bar);
   }
 
+  /* Clicks that leave the site (the-trip-now-www#14), sent only while consent is on (gtag is loaded):
+     - store_click: the store and its products (shop.88eggs.com, *.printify.me), with the product's
+       utm_content (its slug), so First Cent can trace source -> visit -> product click;
+     - outbound_click: any other link to another site (Instagram, the guides' Amazon links).
+     The visit's own utm_source/medium/campaign are recorded by GA4 on the page_view. */
+  function trackClick(e) {
+    if (!loaded || !window.gtag) return;
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var url;
+    try { url = new URL(a.href, location.href); } catch (err) { return; }
+    if (url.host === location.host || !/^https?:$/.test(url.protocol)) return;
+    var store = /(^|\.)shop\.88eggs\.com$|\.printify\.me$/.test(url.hostname);
+    var name = a.querySelector('.pname');
+    window.gtag('event', store ? 'store_click' : 'outbound_click', {
+      link_url: url.origin + url.pathname,
+      link_domain: url.hostname,
+      link_text: ((name || a).textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100),
+      utm_content: url.searchParams.get('utm_content') || '',
+      utm_campaign: url.searchParams.get('utm_campaign') || ''
+    });
+  }
+
   function init() {
+    document.addEventListener('click', trackClick, true);
     if (refused()) { remember('no'); }
     if (granted()) load();
     banner();
