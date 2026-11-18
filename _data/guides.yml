@@ -16,10 +16,12 @@
       url: https://www.amazon.com/dp/B0HRSS3H9K
       price: "$9.99"
       isbn:
-- slug: napa-valley
-  title: Napa Valley
-  place: Napa Valley, California
-  pitch: Wine country at an easy pace - towns, viewpoints and a sensible day-by-day route.
-  date: 2026-12-01
+- slug: napa-sonoma
+  title: Napa & Sonoma Wine Country in 3 Days
+  place: Napa & Sonoma, California
+  pitch: Three relaxed days in wine country - downtown Napa and Carneros, up the valley to Calistoga, then historic Sonoma and Glen Ellen, with maps and where to stay and eat.
+  date: 2026-11-18
+  page: /guides/napa-sonoma/
+  # status goes to live, and the 2 formats get their Amazon URLs, when the Kindle edition is on sale (T2-14).
   status: coming-soon
   formats: []

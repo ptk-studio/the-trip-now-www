@@ -1,0 +1,65 @@
+---
+title: "Napa & Sonoma Wine Country in 3 Days · The Trip Now"
+description: "A pocket itinerary for California wine country: downtown Napa and Carneros, up the valley to St. Helena and Calistoga, then Sonoma Plaza and Glen Ellen. Maps, where to stay and eat, and how to get around without driving."
+og_image: /assets/guides/napa-sonoma/og.jpg
+og_image_alt: "Napa & Sonoma Wine Country in 3 Days, the pocket guide's cover: vineyards under a blue sky"
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include seo.html %}
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🌅&lt;/text&gt;&lt;/svg&gt;">
+{% include style.html %}
+</head>
+<body>
+{%- assign g = site.data.guides | where: "slug", "napa-sonoma" | first -%}
+  <main class="poster">
+    <p class="eyebrow"><a href="/" class="homelink">The Trip Now</a> · <a href="/guides/" class="homelink">Pocket Guides</a></p>
+
+    <div class="bookhero">
+      <img src="/assets/guides/napa-sonoma/cover.jpg" alt="The cover: vineyards under a blue sky, with the title Napa &amp; Sonoma Wine Country in 3 Days" width="600" height="900">
+      <div class="bookinfo">
+        <h1>Napa &amp; Sonoma Wine Country in 3 Days</h1>
+        <p class="bookmeta">A pocket itinerary with maps · 26 pages · facts checked November 2026</p>
+        {%- if g.status == "live" and g.formats.size > 0 %}
+        <ul class="buy">
+          {%- for f in g.formats %}
+          <li><a class="utm" href="{{ f.url }}?utm_source=thetripnow&amp;utm_medium=site&amp;utm_campaign=guides-napa-sonoma&amp;utm_content={{ f.name | slugify }}" target="_blank" rel="noopener">{{ f.name }}{% if f.price %} &middot; {{ f.price }}{% endif %} on Amazon &rarr;</a></li>
+          {%- endfor %}
+        </ul>
+        {%- else %}
+        <p class="soonnote">Coming soon on Kindle and in paperback.</p>
+        {%- endif %}
+      </div>
+    </div>
+
+    <div class="rule"><span>Three days</span></div>
+    <p class="tagline">Start in downtown Napa at the Oxbow Public Market and a seated tasting in Carneros, head up the valley to Robert Mondavi Winery, St. Helena's Main Street, Castello di Amorosa and the hot springs of Calistoga, then end on historic Sonoma Plaza and at Jack London's ranch in Glen Ellen.</p>
+
+    <div class="rule"><span>What's inside</span></div>
+    <ul class="inside">
+      <li>A day-by-day plan for 3 days, each with its own map</li>
+      <li>An at-a-glance page: the stops, drive times and what to book ahead</li>
+      <li>"Did you know?" stories along the way</li>
+      <li>Hand-picked places to stay and eat in every price range</li>
+      <li>Tasting fees and reservations, and how to get around without driving after tasting</li>
+      <li>Options for the Napa Valley Wine Train and a longer day in Healdsburg</li>
+      <li>A packing list, three day planners and a notes page</li>
+    </ul>
+
+    <div class="rule"><span>Look inside</span></div>
+    <div class="samples">
+      <figure><img src="/assets/guides/napa-sonoma/sample-1.jpg" alt="Page 4: At a glance, a table of the 3 days with drive times and what to book ahead" loading="lazy" width="660" height="990"><figcaption>At a glance (p. 4)</figcaption></figure>
+      <figure><img src="/assets/guides/napa-sonoma/sample-2.jpg" alt="Page 6: Day 1, Napa and Carneros, opening with a photo of the Oxbow Public Market" loading="lazy" width="660" height="990"><figcaption>Day 1: Napa and Carneros (p. 6)</figcaption></figure>
+    </div>
+
+    <p class="seeall"><a href="/guides/">All pocket guides &rarr;</a></p>
+    <p class="studio">Photos: Wikimedia Commons (credited in the book) · Maps © OpenStreetMap contributors</p>
+    <p class="studio"><a href="/">Home</a> · <a href="/privacy/">Privacy</a> · <a href="#" id="ptk-consent">Usage stats</a></p>
+  </main>
+<script src="/assets/featured-utm.js" defer></script>
+<script src="/assets/ptk-analytics.js" defer></script>
+</body>
+</html>
