@@ -18,7 +18,7 @@ Bring a photo ID. You must be 21 or older to taste, and you may be asked to show
 
 ## Booking confirmations
 
-Keep your confirmations easy to find, on your phone or printed. Many wineries book seated tastings ahead, and walk-in space is limited, especially on weekends and in harvest season. [N4] Groups of 5 or more should always book. [N4] Expect roughly $40–$100+ per person per winery. [N4]
+Keep your confirmations easy to find, on your phone or printed: most tastings are booked ahead. [N4]
 
 ## Before you go
 

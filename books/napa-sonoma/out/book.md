@@ -39,34 +39,19 @@ This guide is for first-time and returning visitors who want a relaxed, well-pac
 
 ## Getting there
 
-- **To Napa:** Downtown Napa is about 50 miles north of San Francisco. Allow about 1 hour on a weekday and up to about 2 hours on weekends.
-- **Two routes:** Cross the Golden Gate Bridge (US-101, then CA-37, then CA-121/CA-29), or take the Bay Bridge through the East Bay (I-80).
-- **To Sonoma:** Sonoma is about 45 miles from San Francisco, about 1–1.5 hours via US-101, then CA-37, CA-121 and CA-12.
-- **Napa to Sonoma:** Plan on about 12–15 miles, or about 20–30 minutes, via CA-121/CA-12.
-- **Without a car:** Take the San Francisco Bay Ferry from the Ferry Building to Vallejo, then VINE Transit Route 11 (Napa–Vallejo Connector) into Napa.
-- **Traffic:** It varies, so avoid weekday rush hours.
+Downtown Napa is about 50 miles north of San Francisco: about 1 hour on a weekday and up to about 2 hours on weekends. The routes, the ferry and the drive times are in Practical Matters.
 
 ## When to go
 
-Harvest ("crush") runs from late summer through fall. Cabernet Sauvignon is picked last, into October or later. It is the peak travel season, so book tastings, hotels and dinners well ahead. In 2026 the crush began early, on July 21.
+Harvest ("crush") runs from late summer through fall. Sparkling-wine grapes are often picked from early August, and Cabernet Sauvignon comes last, into October or later. It is the peak travel season, so book tastings, hotels and dinners well ahead. In 2026 the crush began early, on July 21.
 
 Mustard season, when wild yellow mustard blooms between the vines, runs January through March and peaks about mid-February. Weekdays are quieter than weekends all year.
 
-## Book your tastings ahead
-
-Expect roughly $40–$100+ per person per winery. In 2025 the average standard tasting fee was about $79 in Napa and about $47 in Sonoma. Reserve tastings in Sonoma averaged about $95.
-
-Many wineries book seated tastings ahead, and walk-in space is limited, especially on weekends and in harvest season. Sonoma's town tasting rooms are more often walk-in friendly. Groups of 5 or more should always book.
-
-## Don't drive after tasting
-
-The driver doesn't taste. In California it is illegal to drive with a blood alcohol concentration of 0.08% or more (0.01% if you are under 21). Choose a designated driver, take a tour with a driver (private chauffeur services, the open-air Napa Valley Wine Trolley, or the Wine Train), or use Uber/Lyft. Tasting is for guests 21 and older, so bring ID.
-
-Prices, hours and reservation rules change, so check before you go.
+Book tastings ahead, especially at weekends. **The driver doesn't taste** (see Practical Matters), and tasting is for guests 21 and older, so bring ID.
 
 # Day 1: Napa and Carneros
 
-![](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/day1-napa.jpg)
+![](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/napa-sonoma/out/epub-img/day1-napa.jpg)
 
 *Photo: Daderot · CC0 · Wikimedia Commons*
 
@@ -88,7 +73,7 @@ Tasting is for guests 21 and older, so bring ID. Remember: the driver doesn't ta
 
 ## How tasting works
 
-Fees vary widely. In 2025 the average standard tasting fee in Napa was about $79. Expect roughly $40–$100+ per person per winery. Many wineries book seated tastings ahead, and walk-in space is limited, especially on weekends and in harvest season. Groups of 5 or more should always book. Fees and reservation rules change, so check before you go.
+Most tastings are seated and booked ahead, and walk-in space is limited, especially on weekends and in harvest season. Typical fees are in Practical Matters.
 
 ## Where to stay
 
@@ -105,12 +90,12 @@ Fees vary widely. In 2025 the average standard tasting fee in Napa was about $79
 
 Prices, hours and reservation rules change, so check before you go.
 
-![Map of Day 1](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/map-day1.jpg){.day-map}
+![Map of Day 1](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/napa-sonoma/out/epub-img/map-day1.jpg){.day-map}
 
 
 # Day 2: Up the Valley
 
-![](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/day2-valley.jpg)
+![](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/napa-sonoma/out/epub-img/day2-valley.jpg)
 
 *Photo: Leonardo Dasilva · CC BY 3.0 · Wikimedia Commons*
 
@@ -183,12 +168,12 @@ If you would rather not drive up the valley, the train is one way to do it.
 
 Prices, hours and reservation rules change, so check before you go.
 
-![Map of Day 2](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/map-day2.jpg){.day-map}
+![Map of Day 2](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/napa-sonoma/out/epub-img/map-day2.jpg){.day-map}
 
 
 # Day 3: Sonoma and Glen Ellen
 
-![](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/day3-sonoma.jpg)
+![](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/napa-sonoma/out/epub-img/day3-sonoma.jpg)
 
 *Photo: Sarah Stierch (Missvain) · CC0 · Wikimedia Commons*
 
@@ -235,7 +220,7 @@ If you want a longer day, Healdsburg is about 50 minutes north of Sonoma via CA-
 
 Prices, hours and reservation rules change, so check before you go.
 
-![Map of Day 3](/Users/thomas/workspaces/ptk-studio-worker/tt-www/books/napa-sonoma/out/epub-img/map-day3.jpg){.day-map}
+![Map of Day 3](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/napa-sonoma/out/epub-img/map-day3.jpg){.day-map}
 
 
 # Practical Matters: Getting There, Getting Around, Booking
@@ -281,14 +266,6 @@ Expect roughly $40 to $100+ per person per winery. In 2025 the average standard 
 - Sonoma's town tasting rooms are more often walk-in friendly.
 - Groups of 5 or more should always book.
 
-## When to go
-
-Harvest ("crush") runs from late summer through fall. Sparkling-wine grapes are often picked from early August, and Cabernet Sauvignon comes last, into October or later. It is the peak travel season, so book tastings, hotels and dinners well ahead. In 2026 the crush began early, on July 21.
-
-Mustard season, when wild yellow mustard blooms between the vines, runs January through March and peaks about mid-February.
-
-Weekdays are quieter than weekends all year.
-
 ## Holidays and dinners
 
 Many wineries and the Oxbow market close or shorten hours on Thanksgiving, Christmas Eve and Day, and New Year's Day.
@@ -317,7 +294,7 @@ Bring a photo ID. You must be 21 or older to taste, and you may be asked to show
 
 ## Booking confirmations
 
-Keep your confirmations easy to find, on your phone or printed. Many wineries book seated tastings ahead, and walk-in space is limited, especially on weekends and in harvest season. Groups of 5 or more should always book. Expect roughly $40–$100+ per person per winery.
+Keep your confirmations easy to find, on your phone or printed: most tastings are booked ahead.
 
 ## Before you go
 

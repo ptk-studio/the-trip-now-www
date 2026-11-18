@@ -41,14 +41,6 @@ Expect roughly $40 to $100+ per person per winery. [N4] In 2025 the average stan
 - Sonoma's town tasting rooms are more often walk-in friendly. [N4]
 - Groups of 5 or more should always book. [N4]
 
-## When to go
-
-Harvest ("crush") runs from late summer through fall. [N14] Sparkling-wine grapes are often picked from early August, and Cabernet Sauvignon comes last, into October or later. [N14] It is the peak travel season, so book tastings, hotels and dinners well ahead. [N14] In 2026 the crush began early, on July 21. [N14]
-
-Mustard season, when wild yellow mustard blooms between the vines, runs January through March and peaks about mid-February. [N14]
-
-Weekdays are quieter than weekends all year. [N14]
-
 ## Holidays and dinners
 
 Many wineries and the Oxbow market close or shorten hours on Thanksgiving, Christmas Eve and Day, and New Year's Day. [N16]
