@@ -5,8 +5,10 @@
 # channel a visitor arrived from (?utm_source=instagram|youtube|pinterest on thetripnow.com).
 # gift_collection: set url when the gift collection (the-trip-now-www#38) is live; the link appears then.
 gift_collection:
-  url: ""
-  label: "Christmas gifts for travellers"
+  # Live on the Printify Pop-Up store since 2026-11-18 (20 products, the-trip-now-www#38). The 88eggs store shows the
+  # same collection after its nightly sync, at shop.88eggs.com/store/the-trip-now?collection=… (switch then if wanted).
+  url: "https://the-trip-now.printify.me/collection/christmas-gifts-for-travelers"
+  label: "Christmas gifts for travelers"
 store:
   url: "https://shop.88eggs.com/store/the-trip-now"
 products:
