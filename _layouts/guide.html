@@ -1,0 +1,60 @@
+<!doctype html>
+{%- comment -%} One 'Look inside' page per pocket guide (the-trip-now-www#54 Napa, #55 Big Sur). Front matter:
+  guide (the slug in _data/guides.yml), title, description, og_image, og_image_alt, meta, summary, inside (list),
+  samples (list of {src, alt, caption}), cover_alt, credits. Buy buttons show only when the guide's status is live and
+  it has format URLs. {%- endcomment -%}
+{%- assign g = site.data.guides | where: "slug", page.guide | first -%}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include seo.html %}
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🌅&lt;/text&gt;&lt;/svg&gt;">
+{% include style.html %}
+</head>
+<body>
+  <main class="poster">
+    <p class="eyebrow"><a href="/" class="homelink">The Trip Now</a> · <a href="/guides/" class="homelink">Pocket Guides</a></p>
+
+    <div class="bookhero">
+      <img src="/assets/guides/{{ page.guide }}/cover.jpg" alt="{{ page.cover_alt }}" width="600" height="900">
+      <div class="bookinfo">
+        <h1>{{ page.book_title | default: g.title }}</h1>
+        <p class="bookmeta">{{ page.meta }}</p>
+        {%- if g.status == "live" and g.formats.size > 0 %}
+        <ul class="buy">
+          {%- for f in g.formats %}
+          <li><a class="utm" href="{{ f.url }}?utm_source=thetripnow&amp;utm_medium=site&amp;utm_campaign=guides-{{ page.guide }}&amp;utm_content={{ f.name | slugify }}" target="_blank" rel="noopener">{{ f.name }}{% if f.price %} &middot; {{ f.price }}{% endif %} on Amazon &rarr;</a></li>
+          {%- endfor %}
+        </ul>
+        {%- else %}
+        <p class="soonnote">Coming soon on Kindle and in paperback.</p>
+        {%- endif %}
+      </div>
+    </div>
+
+    <div class="rule"><span>Three days</span></div>
+    <p class="tagline">{{ page.summary }}</p>
+
+    <div class="rule"><span>What's inside</span></div>
+    <ul class="inside">
+      {%- for item in page.inside %}
+      <li>{{ item }}</li>
+      {%- endfor %}
+    </ul>
+
+    <div class="rule"><span>Look inside</span></div>
+    <div class="samples">
+      {%- for s in page.samples %}
+      <figure><img src="/assets/guides/{{ page.guide }}/{{ s.src }}" alt="{{ s.alt }}" loading="lazy" width="660" height="990"><figcaption>{{ s.caption }}</figcaption></figure>
+      {%- endfor %}
+    </div>
+
+    <p class="seeall"><a href="/guides/">All pocket guides &rarr;</a></p>
+    <p class="studio">{{ page.credits }}</p>
+    <p class="studio"><a href="/">Home</a> · <a href="/privacy/">Privacy</a> · <a href="#" id="ptk-consent">Usage stats</a></p>
+  </main>
+<script src="/assets/featured-utm.js" defer></script>
+<script src="/assets/ptk-analytics.js" defer></script>
+</body>
+</html>
