@@ -98,3 +98,25 @@ of failed output without approval.
 - **The worker:** every step above, except B6.
 - **The Owner:** B6 (the yes, and the KDP sign-in), any new spend (C4), and the decision to unpublish a book.
 - **The manager:** reviews the scorecard, and gives "cleared to merge" (S) or the go-ahead (C, B).
+
+## First visit (blocking; ptk-studio#235, #237)
+
+**Before any release: run every check in this file; the First visit section is blocking.** Nothing is deployed or
+published until every row passes with its evidence on the scorecard. Open the site **as a stranger**: a fresh browser
+profile, no cookies, a phone-size window.
+
+| # | Check | Passes when (evidence) |
+|---|---|---|
+| FV1 | Every public page in the sitemap | HTTP 200, the right title, renders at phone width (a screenshot per changed page) |
+| FV2 | Console | **0 errors** on every changed page (the console log) |
+| FV3 | Network | only the hosts the privacy page names; our APIs only via `api.88eggs.com` (R53); no response ≥ 400 |
+| FV4 | Cookies | before consent: none beyond what the privacy page lists; after consent: exactly the listed ones |
+| FV5 | Forms and the Feedback button | open and validate; **never submit against production** (a test submit only on local or staging) |
+| FV6 | Redirects and old URLs | every URL that must keep working answers (e.g. `_tools/check-redirects.py` where it exists) |
+| FV7 | The scorecard line | `First visit on a fresh profile: PASS (evidence)` |
+
+### Books and printed products (blocking)
+- The proof read page by page (every count counted, every prompt read); no dropped or placeholder title in any file.
+- The feedback line `honeystorm.com/books/<slug>` (the frozen slug, hb#81) on the back cover (one line, inside the safe
+  area, clear of the barcode: a 100 % crop) and on the last page; **its page answers 200 before upload**.
+- Fill-in pages carry their grey example hints (R100); pages are balanced, not mostly empty lines.
