@@ -10,7 +10,7 @@ This guide is for first-time and returning visitors who want three easy days aro
 
 ## Getting there
 
-South Lake Tahoe is about 190–200 miles from San Francisco, roughly 3.5–4 hours by car. [T1] The routes, the winter roads and getting around without a car are in Practical Matters.
+South Lake Tahoe is about 3.5–4 hours by car from San Francisco. [T1] The routes, the winter roads and getting around without a car are in Practical Matters.
 
 ## The lake
 
