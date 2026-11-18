@@ -37,3 +37,18 @@ section.chapter > p:last-child, section.chapter > ul + p { break-before: avoid; 
 
 /* Nested lists default to a hollow bullet (U+25E6), which Noto Serif lacks: it fell back to Times (#9). */
 ul ul { list-style-type: disc; }
+
+/* #9 review fixes (Napa & Sonoma) */
+.photo-credit { font-family: 'Noto Sans', sans-serif; font-size: 7.5pt; color: #555; margin: -10pt 0 12pt; }
+.nowrap { white-space: nowrap; }
+.toc .toc-extra { list-style: none; padding-left: 0; font-size: 11pt; line-height: 1.9; margin-top: 6pt; color: #4A5A50; }
+.glance table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 8pt; }
+.glance th, .glance td { border-bottom: 0.5pt solid #9aa; padding: 3pt 4pt; text-align: left; vertical-align: top; }
+.glance h2 { margin-top: 10pt; }
+.credits li { font-size: 9pt; word-break: break-word; }
+/* #9 review item 6: maps flow under the day's last text instead of forcing a near-empty page */
+.day-map { break-before: auto; max-height: 5.4in; margin-top: 10pt; }
+.glance { font-size: 9.5pt; } .glance h1 { margin-bottom: 8pt; }
+.glance table th:first-child, .glance table td:first-child { width: 0.35in; }
+.glance table th:nth-child(2), .glance table td:nth-child(2) { width: 1.35in; }
+.glance ul { margin-bottom: 4pt; } .glance li { margin-bottom: 1pt; }

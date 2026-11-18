@@ -48,8 +48,40 @@ def need(tool):
 
 
 def reader_text(md: str) -> str:
-    """Strip the [F#] fact citations, which are for checking, not for readers."""
-    return CITE.sub("", md)
+    """Strip the [F#] fact citations, which are for checking, not for readers.
+    book.json "nowrap_prices": keep price marks like $$ or $$–$$$ on one line (#9 review)."""
+    md = CITE.sub("", md)
+    if CFG.get("nowrap_prices"):
+        md = re.sub(r"(?<![\w\]\[])(\$+(?:–\$+)?)(?![\d\w])", r"[\1]{.nowrap}", md)
+    return md
+
+
+# ---------------------------------------------------------------- photo credits (book.json "photo_credits": true)
+LICENCE_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/", "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+               "CC0": "https://creativecommons.org/publicdomain/zero/1.0/"}
+
+
+def credits() -> dict:
+    """images/credits.json -> {file name: entry}; used for a credit under each photo and the credits page."""
+    f = ROOT / "images" / "credits.json"
+    return {c["file"]: c for c in json.loads(f.read_text(encoding="utf-8"))} if CFG.get("photo_credits") and f.exists() else {}
+
+
+def short_credit(image: str) -> str:
+    c = credits().get(Path(image).name)
+    return f"Photo: {c['artist']} · {c['license']} · Wikimedia Commons" if c else ""
+
+
+def credits_md() -> str:
+    """The printed 'Sources and credits' page when book.json sets "sources_note" (the full source list lives online)."""
+    out = ["# Sources and credits", "", CFG["sources_note"], "", "## Photo credits", ""]
+    for c in credits().values():
+        lic = c["license"]
+        lic_txt = f"[{lic}]({LICENCE_URL[lic]})" if lic in LICENCE_URL else lic
+        out.append(f"- *{c['title'].rsplit('.', 1)[0]}* by {c['artist']}, {lic_txt}, via Wikimedia Commons: {c['page']}")
+    if CFG.get("map_credit"):
+        out += ["", "## Maps", "", CFG["map_credit"]]
+    return "\n".join(out) + "\n"
 
 
 def chapters():
@@ -121,14 +153,22 @@ def build_interior() -> Path:
         title = re.search(r"^# (.+)$", md, re.M).group(1)
         toc.append(f"<li>{html.escape(title)}</li>")
         img = f'<img class="section-art" src="{ROOT / ch["image"]}" alt="">' if ch["image"] else ""
+        if ch["image"] and short_credit(ch["image"]):
+            img += f'<p class="photo-credit">{html.escape(short_credit(ch["image"]))}</p>'
         body.append(f'<section class="chapter">{img}{md_to_html(md)}</section>')
-    toc.append(f"<li>{BACK_TITLE}</li><li>Sources and credits</li><li>Trip planner</li>")
-    parts.append("".join(toc) + "</ol></section>")
+    extras = f"<li>{BACK_TITLE}</li><li>Sources and credits</li><li>Trip planner</li>"
+    if CFG.get("toc_extras_unnumbered"):   # #9 review: the back pages aren't chapters
+        parts.append("".join(toc) + f'</ol><ul class="toc-extra">{extras}</ul></section>')
+    else:
+        parts.append("".join(toc) + extras + "</ol></section>")
+    if CFG.get("at_a_glance"):             # one page after the contents (src/<file>.md)
+        glance = (SRC / f"{CFG['at_a_glance']}.md").read_text(encoding="utf-8")
+        parts.append(f'<section class="chapter glance">{md_to_html(reader_text(glance))}</section>')
     parts += body
     parts.append(f'<section class="chapter back-page"><h1>{BACK_TITLE}</h1><p>{html.escape(BACK_TEXT)}</p>'
                  f'<p class="back-url">thetripnow.com</p><p class="review-ask">{html.escape(REVIEW_TEXT)}</p></section>')
-    sources = (SRC / "sources.md").read_text(encoding="utf-8")
-    parts.append(f'<section class="chapter">{md_to_html(sources)}</section>')
+    sources = credits_md() if CFG.get("sources_note") else (SRC / "sources.md").read_text(encoding="utf-8")
+    parts.append(f'<section class="chapter credits">{md_to_html(sources)}</section>')
     for i in range(CFG["planner_pages"]):
         lines = "".join('<div class="line"></div>' for _ in range(22))
         parts.append(f'<section class="planner"><h2>Trip planner {i + 1}</h2>'
@@ -163,12 +203,15 @@ def epub_image(path) -> str:
 
 def build_epub() -> Path:
     md = [f"% {CFG['title']}\n% {CFG['author']}\n"]
+    if CFG.get("at_a_glance"):
+        md.append(reader_text((SRC / f"{CFG['at_a_glance']}.md").read_text(encoding="utf-8")))
     for ch, text in chapters():
         if ch["image"]:
-            text = re.sub(r"^(# .+)$", rf"\1\n\n![]({ROOT / ch['image']})", text, count=1, flags=re.M)
+            cap = f"\n\n*{short_credit(ch['image'])}*" if short_credit(ch["image"]) else ""
+            text = re.sub(r"^(# .+)$", rf"\1\n\n![]({ROOT / ch['image']}){cap}", text, count=1, flags=re.M)
         md.append(text)
     md.append(back_page_md(link=True))
-    md.append((SRC / "sources.md").read_text(encoding="utf-8"))
+    md.append(credits_md() if CFG.get("sources_note") else (SRC / "sources.md").read_text(encoding="utf-8"))
     text = "\n\n".join(md)
     text = re.sub(r"\]\((/[^)]+\.(?:png|jpe?g))\)", lambda m: "](" + epub_image(m.group(1)) + ")", text)
     src = OUT / "book.md"
@@ -193,6 +236,8 @@ def build_cover(pages: int) -> tuple[Path, float]:
     front_x = BLEED + TRIM_W + spine
     t, sub = html.escape(CFG["title"]), html.escape(CFG["subtitle"])
     art = ROOT / CFG["cover_image"]
+    # book.json "back_url": print the site on the back cover (#9 review)
+    back_url = f'<p style="margin-top:0.3in;font-family:Noto Sans;font-weight:700;font-size:14pt">{html.escape(CFG["back_url"])}</p>' if CFG.get("back_url") else ""
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><style>
 @page {{ size: {w}in {h}in; margin: 0; }}
 body {{ margin: 0; font-family: 'Noto Sans'; }}
@@ -211,7 +256,7 @@ body {{ margin: 0; font-family: 'Noto Sans'; }}
 </style></head><body>
 <div class="back"></div><div class="spine"></div><div class="front"></div>
 <div class="title">{t}<span class="subtitle">{sub}</span></div>
-<div class="blurb">{html.escape(CFG['back_blurb'])}</div><div class="barcode"></div>
+<div class="blurb">{html.escape(CFG['back_blurb'])}{back_url}</div><div class="barcode"></div>
 </body></html>"""
     src = OUT / "cover.html"
     src.write_text(doc, encoding="utf-8")

@@ -3,7 +3,7 @@
   "subtitle": "A TheTripNow pocket itinerary",
   "author": "TheTripNow",
   "lang": "en",
-  "rights": "© 2026 TheTripNow. Draft edition – not for sale.",
+  "rights": "© 2026 TheTripNow. All rights reserved.",
   "trim_in": [
     6,
     9
@@ -49,8 +49,15 @@
       "image": null
     }
   ],
-  "planner_pages": 5,
+  "planner_pages": 6,
   "checked": "15 November 2026",
   "epub_image_max_px": 1000,
-  "epub_jpeg_quality": 70
+  "epub_jpeg_quality": 70,
+  "photo_credits": true,
+  "nowrap_prices": true,
+  "toc_extras_unnumbered": true,
+  "at_a_glance": "at-a-glance",
+  "sources_note": "Every fact in this guide was checked on 15 November 2026 against official and published sources. The full list of sources is at thetripnow.com/sources/napa-sonoma.",
+  "map_credit": "Maps: © OpenStreetMap contributors, available under the Open Database License (openstreetmap.org/copyright).",
+  "back_url": "thetripnow.com"
 }
