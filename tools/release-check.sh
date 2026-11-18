@@ -6,7 +6,7 @@ set -u
 SITE=https://thetripnow.com
 REPO=ptk-studio/the-trip-now-www
 # Files served by GitHub Pages on purpose. Anything else at the top level must be in _config.yml exclude.
-PUBLIC="CNAME index.html _config.yml assets privacy guides _data _includes"
+PUBLIC="CNAME index.html _config.yml assets privacy guides sources shop _data _includes"
 fail=0
 ok()  { printf 'PASS  %s\n' "$1"; }
 bad() { printf 'FAIL  %s\n' "$1"; fail=1; }

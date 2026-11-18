@@ -1,0 +1,50 @@
+---
+title: "Shop by Style or Place · The Trip Now"
+description: "Travel posters, mugs, tees and journals from The Trip Now, grouped by art style (Art Deco, WPA, Ukiyo-e, watercolor) and by place (Italy, the Southwest, New York City, Japan)."
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include seo.html %}
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🌅&lt;/text&gt;&lt;/svg&gt;">
+{% include style.html %}
+</head>
+<body>
+  <main class="poster">
+    <p class="eyebrow"><a href="/" class="homelink">The Trip Now</a></p>
+    <h1 class="pagetitle">Shop by Style or Place</h1>
+    <p class="tagline">Every design comes as a poster, mug, tee or journal. Pick a look you love, or the place you can't stop talking about.</p>
+{%- comment -%} Only collections with a url are shown (t2-manager, #52: no "Coming soon" cards on a live page). {%- endcomment -%}
+{%- assign utm = "utm_source=thetripnow&amp;utm_medium=site&amp;utm_campaign=collections" -%}
+{%- assign live = site.data.collections.collections | where_exp: "c", "c.url != ''" -%}
+{%- assign kinds = "Style,Place" | split: "," -%}
+{%- for kind in kinds %}
+{%- assign group = live | where: "kind", kind -%}
+{%- if group.size > 0 %}
+    <div class="rule"><span>By {{ kind | downcase }}</span></div>
+    <ul class="collections">
+    {%- for c in group %}
+      <li class="collection">
+        <a class="utm" href="{{ c.url }}?{{ utm }}&amp;utm_content={{ c.slug }}" target="_blank" rel="noopener">
+          <img src="{{ c.cover | replace: '&', '&amp;' }}" alt="{{ c.cover_alt }}" loading="lazy" width="400" height="400">
+          <span class="cname">{{ c.title }}</span>
+          <span class="cintro">{{ c.intro }}</span>
+        </a>
+      </li>
+    {%- endfor %}
+    </ul>
+{%- endif %}
+{%- endfor %}
+    <div class="rule"><span>Gifts</span></div>
+    <p class="seeall">
+      {%- if site.data.featured.gift_collection.url != "" %}<a class="utm" href="{{ site.data.featured.gift_collection.url }}?{{ utm }}&amp;utm_content=gift-collection" target="_blank" rel="noopener">{{ site.data.featured.gift_collection.label }} &rarr;</a><br>{% endif %}
+      <a class="utm" href="{{ site.data.featured.store.url }}?{{ utm }}&amp;utm_content=all-products" target="_blank" rel="noopener">See the whole store &rarr;</a>
+    </p>
+    <p class="studio"><a href="/">Home</a> · <a href="/guides/">Pocket guides</a> · <a href="/privacy/">Privacy</a> · <a href="#" id="ptk-consent">Usage stats</a></p>
+  </main>
+<script src="/assets/featured-utm.js" defer></script>
+<script src="/assets/ptk-analytics.js" defer></script>
+</body>
+</html>
