@@ -2,8 +2,9 @@
 # Add a guide = add an entry here. status: live | coming-soon. Newest date first on the pages.
 # formats[].price: leave empty if not confirmed on Amazon (never guess a price).
 - slug: big-sur-3-days
-  title: Big Sur in 3 Days
+  title: Big Sur & the Monterey Coast in 3 Days
   place: Big Sur, California
+  page: /guides/big-sur-3-days/
   pitch: A calm three-day plan for Highway 1 - where to stop, when to go, and how to avoid the crowds, in a guide that fits in your pocket.
   date: 2026-11-15
   status: live
