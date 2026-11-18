@@ -2,7 +2,7 @@ interior.pdf: 30 pages, 6.000 x 9.000 in (OK)
   KDP paperback minimum 24 pages: OK
   fonts embedded: yes (Noto-Sans, Noto-Sans-Bold, Noto-Serif, Noto-Serif-Bold, Noto-Serif-Italic)
   image images/day1-napa.jpg: 2400x1600px -> 505 dpi at 4.75 in wide (OK)
-  image images/day2-valley.jpg: 3840x2560px -> 808 dpi at 4.75 in wide (OK)
+  image images/day2-valley.jpg: 2400x1800px -> 505 dpi at 4.75 in wide (OK)
   image images/day3-sonoma.jpg: 2400x1800px -> 505 dpi at 4.75 in wide (OK)
   image images/map-day1.png: 1425x1256px -> 300 dpi at 4.75 in wide (OK)
   image images/map-day2.png: 1425x1517px -> 300 dpi at 4.75 in wide (OK)
@@ -11,7 +11,7 @@ interior.pdf: 30 pages, 6.000 x 9.000 in (OK)
 cover.pdf: 12.3176 x 9.2500 in; spine 0.0676 in for 30 pages on white paper (expected 12.3176 x 9.2500: OK)
   spine text: not allowed under 80 pages (KDP), spine left plain
 kindle-cover.jpg: 1800x2700px, front panel; title text found on it: OK (upload this as the KDP Kindle cover; OK)
-book.epub: 0.85 MB (OK); EPUBCheck exit 0
+book.epub: 0.83 MB (OK); EPUBCheck exit 0
   No errors or warnings detected.
   Messages: 0 fatals / 0 errors / 0 warnings / 0 infos
 back page: https://thetripnow.com/ -> HTTP 200 (OK); EPUB link https://thetripnow.com/?utm_source=book&utm_medium=print&utm_campaign=napa-sonoma; print shows 'thetripnow.com'
