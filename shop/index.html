@@ -16,22 +16,26 @@ description: "Travel posters, mugs, tees and journals from The Trip Now, grouped
     <p class="eyebrow"><a href="/" class="homelink">The Trip Now</a></p>
     <h1 class="pagetitle">Shop by Style or Place</h1>
     <p class="tagline">Every design comes as a poster, mug, tee or journal. Pick a look you love, or the place you can't stop talking about.</p>
+{%- comment -%} Only collections with a url are shown (t2-manager, #52: no "Coming soon" cards on a live page). {%- endcomment -%}
 {%- assign utm = "utm_source=thetripnow&amp;utm_medium=site&amp;utm_campaign=collections" -%}
+{%- assign live = site.data.collections.collections | where_exp: "c", "c.url != ''" -%}
 {%- assign kinds = "Style,Place" | split: "," -%}
 {%- for kind in kinds %}
+{%- assign group = live | where: "kind", kind -%}
+{%- if group.size > 0 %}
     <div class="rule"><span>By {{ kind | downcase }}</span></div>
     <ul class="collections">
-    {%- for c in site.data.collections.collections %}{% if c.kind == kind %}
-      <li class="collection{% if c.url == '' %} soon{% endif %}">
-        {%- if c.url != '' %}<a class="utm" href="{{ c.url }}?{{ utm }}&amp;utm_content={{ c.slug }}" target="_blank" rel="noopener">{% else %}<div class="ccard">{% endif %}
+    {%- for c in group %}
+      <li class="collection">
+        <a class="utm" href="{{ c.url }}?{{ utm }}&amp;utm_content={{ c.slug }}" target="_blank" rel="noopener">
           <img src="{{ c.cover | replace: '&', '&amp;' }}" alt="{{ c.cover_alt }}" loading="lazy" width="400" height="400">
           <span class="cname">{{ c.title }}</span>
           <span class="cintro">{{ c.intro }}</span>
-          {%- if c.url == '' %}<span class="badge">Coming soon</span>{% endif %}
-        {%- if c.url != '' %}</a>{% else %}</div>{% endif %}
+        </a>
       </li>
-    {%- endif %}{% endfor %}
+    {%- endfor %}
     </ul>
+{%- endif %}
 {%- endfor %}
     <div class="rule"><span>Gifts</span></div>
     <p class="seeall">

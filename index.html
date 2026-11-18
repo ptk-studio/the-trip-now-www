@@ -28,7 +28,10 @@ description: "The Trip Now: travel art for travellers. Mugs, tees and journals o
     <div class="rule"><span>Bring It Home</span></div>
 
     {% include featured-list.html %}
+    {%- assign live_collections = site.data.collections.collections | where_exp: "c", "c.url != ''" %}
+    {%- if live_collections.size >= 4 %}
     <p class="seeall"><a href="/shop/">Shop by style or place &rarr;</a></p>
+    {%- endif %}
 
     <div class="rule"><span>Pocket Guides</span></div>
 
