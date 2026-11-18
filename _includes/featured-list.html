@@ -1,0 +1,17 @@
+{%- comment -%} Featured products (the-trip-now-www#12). Data: _data/featured.yml. {%- endcomment -%}
+{%- assign utm = "utm_source=thetripnow&amp;utm_medium=site&amp;utm_campaign=xmas2026" -%}
+<ul class="featured">
+{%- for p in site.data.featured.products %}
+  <li class="product">
+    <a class="utm" href="{{ p.url }}?{{ utm }}&amp;utm_content={{ p.url | split: '/' | last }}" target="_blank" rel="noopener">
+      <img src="{{ p.image | replace: '&', '&amp;' }}" alt="{{ p.title }} {{ p.kind | downcase }}, {{ p.style | downcase }} design" loading="lazy" width="400" height="400">
+      <span class="pname">{{ p.title }}</span>
+      <span class="pmeta">{{ p.kind }} &middot; {{ p.price }}</span>
+    </a>
+  </li>
+{%- endfor %}
+</ul>
+<p class="seeall">
+  {%- if site.data.featured.gift_collection.url != "" %}<a class="utm" href="{{ site.data.featured.gift_collection.url }}?{{ utm }}&amp;utm_content=gift-collection" target="_blank" rel="noopener">{{ site.data.featured.gift_collection.label }} &rarr;</a><br>{% endif %}
+  <a class="utm" href="{{ site.data.featured.store.url }}?{{ utm }}&amp;utm_content=all-products" target="_blank" rel="noopener">See the whole store &rarr;</a>
+</p>
