@@ -12,7 +12,9 @@ For t2-manager's score. **Nothing is entered on KDP and nothing is published (R5
 
 The title matches the cover and the book's title page exactly (checked: the build's cover check finds the title text on the Kindle cover).
 
-## 2. Description (about 140 words; Amazon allows simple HTML)
+## 2. Description (about 140 words; Amazon allows simple HTML; KDP takes one per format)
+
+### Paperback
 > Three easy days around the lake.
 >
 > For first-time and returning visitors who want three easy days around the lake, this pocket itinerary starts in South Lake Tahoe with the Heavenly Gondola, Emerald Bay and Vikingsholm, follows the West Shore to Sugar Pine Point and Tahoe City, then finishes in the railroad town of Truckee and at Donner Memorial State Park, with Sand Harbor as an option.
@@ -27,7 +29,22 @@ The title matches the cover and the book's title page exactly (checked: the buil
 >
 > Every fact was checked against official and published sources in November 2026. Prices, hours and seasons change, so check before you go.
 
-Every line is in the book (24 pages). I made no claim about ratings, awards or "best".
+### Kindle
+> Three easy days around the lake.
+>
+> For first-time and returning visitors who want three easy days around the lake, this pocket itinerary starts in South Lake Tahoe with the Heavenly Gondola, Emerald Bay and Vikingsholm, follows the West Shore to Sugar Pine Point and Tahoe City, then finishes in the railroad town of Truckee and at Donner Memorial State Park, with Sand Harbor as an option.
+>
+> **Inside:**
+> • A day-by-day plan for 3 days, each with its own map
+> • A "Did you know?" at the stops
+> • Named places to stay and eat for each day
+> • Hours, fees and parking notes for the parks and museums
+> • How to get around without a car, and a winter box for chains and closures
+> • A packing list
+>
+> Every fact was checked against official and published sources in November 2026. Prices, hours and seasons change, so check before you go.
+
+The Kindle text drops the notes space, because the EPUB hides the paper-only Notes area. Every line is in the book (24 pages). I made no claim about ratings, awards or "best".
 
 ## 3. Keywords (7)
 1. lake tahoe travel guide
@@ -70,4 +87,4 @@ Photo licences (each with its Wikimedia Commons page in the book's credits):
 | Donner Lake, Truckee (Unsplash) | Mark Harpur | CC0 |
 
 ## 7. Claims check
-Every sentence of the description maps to a chapter in the book. The "Did you know?" boxes are in Day 1, Day 2 and Day 3; the space for notes is the ruled box at the end of each Day; the winter box is in Practical Matters.
+Every sentence of the description maps to a chapter in the book. The "Did you know?" boxes are in Day 1, Day 2 and Day 3; the space for notes is the ruled box at the end of each Day, in the paperback only (the Kindle description does not mention it); the winter box is in Practical Matters.
