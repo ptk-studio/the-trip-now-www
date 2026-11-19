@@ -18,7 +18,7 @@
 ## Book ahead, or check first
 
 - Sand Harbor, April 15 to October 15: a day-use reservation to drive in between 8 and 10:30 am.
-- Vikingsholm and Ehrman Mansion house tours are first come, first served.
+- Vikingsholm and Ehrman Mansion house tours run in summer only, and are first come, first served.
 - Winter: Highway 89 at Emerald Bay closes after storms, and chains may be required.
 
 
@@ -51,13 +51,13 @@ Prices, hours and seasons change, so check before you go.
 
 # Day 1: South Lake Tahoe and Emerald Bay
 
-![](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/lake-tahoe/out/epub-img/day1-vikingsholm.jpg)
+![](epub-img/day1-vikingsholm.jpg)
 
-*Photo: Mike McBey · CC BY 2.0 · Wikimedia Commons*
+*Vikingsholm, Emerald Bay. Photo: Mike McBey · CC BY 2.0 · Wikimedia Commons*
 
 ## Stateline and the Heavenly Gondola
 
-Start at Heavenly Village, where the California–Nevada line crosses US-50. On the Nevada side, Stateline's casino hotels are all a short walk from the village. The Heavenly Gondola climbs from the village plaza; summer sightseeing ran about 10 am to 5 pm daily in 2025, so check this year's hours, and see skiheavenly.com for tickets.
+Start at Heavenly Village, where the California–Nevada line crosses US-50. On the Nevada side, Stateline's casino hotels are all a short walk from the village. The Heavenly Gondola climbs from the village plaza; summer sightseeing ran about 10 am to 5 pm daily in 2025; hours change each year, so check before you go, and see skiheavenly.com for tickets.
 
 ## Emerald Bay and Vikingsholm
 
@@ -85,14 +85,14 @@ Just north of Emerald Bay, D.L. Bliss State Park reopened for camping and day us
 Prices, hours and seasons change, so check before you go.
 
 
-![Map of Day 1](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/lake-tahoe/out/epub-img/map-day1.jpg){.day-map}
+![Map of Day 1](epub-img/map-day1.jpg){.day-map}
 
 
 # Day 2: The West Shore to Tahoe City
 
-![](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/lake-tahoe/out/epub-img/day2-tahoecity.jpg)
+![](epub-img/day2-tahoecity.jpg)
 
-*Photo: Bohao Zhao · CC BY 3.0 · Wikimedia Commons*
+*Tahoe City, on the north-west shore. Photo: Bohao Zhao · CC BY 3.0 · Wikimedia Commons (cropped)*
 
 ## Sugar Pine Point and the Ehrman Mansion
 
@@ -110,7 +110,7 @@ In Tahoe City, the Gatekeeper's Museum stands beside the Lake Tahoe Dam, where t
 
 North of Tahoe City, Olympic Valley is home to Palisades Tahoe. It was renamed Palisades Tahoe on September 13, 2021, after consultation with local Washoe groups.
 
-> **Did you know?** The valley hosted the 1960 Winter Olympics, the first Winter Games shown live on television.
+> **Did you know?** The valley hosted the 1960 Winter Olympics, the first Winter Games shown on American television.
 
 ## Where to stay
 
@@ -123,14 +123,14 @@ North of Tahoe City, Olympic Valley is home to Palisades Tahoe. It was renamed P
 Prices, hours and seasons change, so check before you go.
 
 
-![Map of Day 2](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/lake-tahoe/out/epub-img/map-day2.jpg){.day-map}
+![Map of Day 2](epub-img/map-day2.jpg){.day-map}
 
 
 # Day 3: Truckee and the North Shore
 
-![](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/lake-tahoe/out/epub-img/day3-donner.jpg)
+![](epub-img/day3-donner.jpg)
 
-*Photo: Mark Harpur · CC0 · Wikimedia Commons*
+*Donner Lake, near Truckee. Photo: Mark Harpur · CC0 · Wikimedia Commons*
 
 ## Truckee's Commercial Row
 
@@ -144,7 +144,7 @@ In Truckee, Donner Memorial State Park is open year-round. Day use runs sunrise 
 
 ## Option: Sand Harbor
 
-From the North Shore, Sand Harbor (a Nevada state park on the East Shore) is an option for a beach afternoon. From April 15 to October 15, you need a day-use reservation to drive in between 8 and 10:30 am; after 10:30 it's first come, first served. Entry was about $10 for Nevada-plated cars and $15 for others in 2025, so check this year's fee.
+From the North Shore, Sand Harbor (a Nevada state park on the East Shore) is an option for a beach afternoon. From April 15 to October 15, you need a day-use reservation to drive in between 8 and 10:30 am; after 10:30 it's first come, first served. Entry was about $10 for Nevada-plated cars and $15 for others in 2025; fees change, so check before you go.
 
 ## Where to stay
 
@@ -159,7 +159,7 @@ From the North Shore, Sand Harbor (a Nevada state park on the East Shore) is an 
 Prices, hours and seasons change, so check before you go.
 
 
-![Map of Day 3](/Users/thomas/workspaces/mochi-factory/t2-worker1/the-trip-now-www/books/lake-tahoe/out/epub-img/map-day3.jpg){.day-map}
+![Map of Day 3](epub-img/map-day3.jpg){.day-map}
 
 
 # Practical Matters: Getting There, Getting Around, Winter
@@ -170,7 +170,7 @@ South Lake Tahoe is about 190–200 miles from San Francisco, roughly 3.5–4 ho
 
 ## Getting around without a car
 
-Two free, on-demand shuttles run around the lake. TART Connect covers North Lake Tahoe and Truckee (its summer 2026 season ran July 1 to September 7), and Lake Link covers South Lake Tahoe and Stateline; book in their apps. The two don't connect, so use the TART bus between the shores.
+Two free, on-demand shuttles run around the lake. TART Connect covers North Lake Tahoe and Truckee (its summer 2026 season ran June 18 to September 7 in Truckee and July 1 to September 7 around North Lake Tahoe), and Lake Link covers South Lake Tahoe and Stateline; book in their apps. The two don't connect, so check the transit sites for a ride between the shores.
 
 ## Winter box: chains and closures
 
@@ -219,10 +219,10 @@ Every fact in this guide was checked on 18 November 2026 against official and pu
 
 ## Photo credits
 
-- *Emerald Bay, Lake Tahoe, California. 2015* by Eric Philbin, [CC0](https://creativecommons.org/publicdomain/zero/1.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Emerald_Bay,_Lake_Tahoe,_California._2015.jpg
-- *Vikingsholm, Lake Tahoe (33807221128)* by Mike McBey, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Vikingsholm,_Lake_Tahoe_(33807221128).jpg
-- *Tahoe City - panoramio* by Bohao Zhao, [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Tahoe_City_-_panoramio.jpg
-- *Donner Lake, Truckee, United States (Unsplash)* by Mark Harpur, [CC0](https://creativecommons.org/publicdomain/zero/1.0/), via Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Donner_Lake,_Truckee,_United_States_(Unsplash).jpg
+- *Emerald Bay, Lake Tahoe, California. 2015* by Eric Philbin, [CC0](https://creativecommons.org/publicdomain/zero/1.0/), via Wikimedia Commons: <https://commons.wikimedia.org/wiki/File:Emerald_Bay,_Lake_Tahoe,_California._2015.jpg>
+- *Vikingsholm, Lake Tahoe (33807221128)* by Mike McBey, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), via Wikimedia Commons: <https://commons.wikimedia.org/wiki/File:Vikingsholm,_Lake_Tahoe_(33807221128).jpg>
+- *Tahoe City - panoramio* by Bohao Zhao (cropped), [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), via Wikimedia Commons: <https://commons.wikimedia.org/wiki/File:Tahoe_City_-_panoramio.jpg>
+- *Donner Lake, Truckee, United States (Unsplash)* by Mark Harpur, [CC0](https://creativecommons.org/publicdomain/zero/1.0/), via Wikimedia Commons: <https://commons.wikimedia.org/wiki/File:Donner_Lake,_Truckee,_United_States_(Unsplash).jpg>
 
 ## Maps
 

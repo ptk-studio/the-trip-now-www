@@ -14,5 +14,5 @@
 ## Book ahead, or check first
 
 - Sand Harbor, April 15 to October 15: a day-use reservation to drive in between 8 and 10:30 am. [T9]
-- Vikingsholm and Ehrman Mansion house tours are first come, first served. [T4][T7]
+- Vikingsholm and Ehrman Mansion house tours run in summer only, and are first come, first served. [T4][T7]
 - Winter: Highway 89 at Emerald Bay closes after storms, and chains may be required. [T5][T14]

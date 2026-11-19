@@ -5,7 +5,8 @@
   "artist": "Eric Philbin",
   "license": "CC0",
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Emerald_Bay,_Lake_Tahoe,_California._2015.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Emerald_Bay,_Lake_Tahoe,_California._2015.jpg",
+  "place": null
  },
  {
   "file": "day1-vikingsholm.jpg",
@@ -13,7 +14,8 @@
   "artist": "Mike McBey",
   "license": "CC BY 2.0",
   "license_url": "https://creativecommons.org/licenses/by/2.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Vikingsholm,_Lake_Tahoe_(33807221128).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Vikingsholm,_Lake_Tahoe_(33807221128).jpg",
+  "place": "Vikingsholm, Emerald Bay"
  },
  {
   "file": "day2-tahoecity.jpg",
@@ -21,7 +23,9 @@
   "artist": "Bohao Zhao",
   "license": "CC BY 3.0",
   "license_url": "https://creativecommons.org/licenses/by/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Tahoe_City_-_panoramio.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tahoe_City_-_panoramio.jpg",
+  "changes": "cropped",
+  "place": "Tahoe City, on the north-west shore"
  },
  {
   "file": "day3-donner.jpg",
@@ -29,6 +33,7 @@
   "artist": "Mark Harpur",
   "license": "CC0",
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Donner_Lake,_Truckee,_United_States_(Unsplash).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Donner_Lake,_Truckee,_United_States_(Unsplash).jpg",
+  "place": "Donner Lake, near Truckee"
  }
 ]

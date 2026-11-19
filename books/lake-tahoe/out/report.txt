@@ -11,7 +11,7 @@ interior.pdf: 24 pages, 6.000 x 9.000 in (OK)
 cover.pdf: 12.3040 x 9.2500 in; spine 0.054 in for 24 pages on white paper (expected 12.3040 x 9.2500: OK)
   spine text: not allowed under 80 pages (KDP), spine left plain
 kindle-cover.jpg: 1800x2700px, front panel; title text found on it: OK (upload this as the KDP Kindle cover; OK)
-book.epub: 0.82 MB (OK); EPUBCheck exit 0
+book.epub: 0.83 MB (OK); EPUBCheck exit 0
   No errors or warnings detected.
   Messages: 0 fatals / 0 errors / 0 warnings / 0 infos
 back page: https://thetripnow.com/ -> HTTP 200 (OK); EPUB link https://thetripnow.com/?utm_source=book&utm_medium=print&utm_campaign=lake-tahoe; print shows 'thetripnow.com'

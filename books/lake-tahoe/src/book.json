@@ -101,5 +101,9 @@
       ]
     }
   ],
-  "notes_pages": 1
+  "notes_pages": 1,
+  "toc_pages": true,
+  "no_hyphen_addresses": true,
+  "relative_paths": true,
+  "autolink_credits": true
 }

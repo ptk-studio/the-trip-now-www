@@ -23,17 +23,17 @@ MAPS = {
     "day1": dict(title="Day 1: South Lake Tahoe and Emerald Bay", bbox=(38.915, -120.17, 39.015, -119.90), main=("US 50", "CA 89"),
                  main_label="US-50 and Highway 89", legend="tr",
                  stops=[("Heavenly Village", *pos("heavenly")), ("Emerald Bay and Vikingsholm", *pos("vikingsholm")), ("D.L. Bliss State Park", *pos("dlbliss"))],
-                 towns=[("SOUTH LAKE TAHOE", 38.9330, -119.9890), ("LAKE TAHOE", 38.9850, -120.0000)]),
+                 towns=[("SOUTH LAKE TAHOE", 38.9245, -120.0850), ("LAKE TAHOE", 38.9850, -120.0000)]),
     "day2": dict(title="Day 2: The West Shore to Tahoe City", bbox=(39.025, -120.40, 39.225, -120.06), main=("CA 89",),
                  main_label="Highway 89", legend="bl",
                  stops=[("Sugar Pine Point (Ehrman Mansion)", *pos("sugarpine")), ("Tahoe City", *pos("tahoecity")), ("Palisades Tahoe", *pos("olympicvalley"))],
                  towns=[("LAKE TAHOE", 39.1000, -120.0900)],
                  extras=[dict(label="Olympic Valley Road", kind="olympic")]),
     "day3": dict(title="Day 3: Truckee and the North Shore", bbox=(39.17, -120.33, 39.36, -119.90), main=("I 80",),
-                 main_label="Interstate 80", legend="tr",
+                 main_label="Interstate 80", legend="tr", arrow="bl",
                  stops=[("Truckee", *pos("truckee")), ("Donner Memorial State Park (museum)", *pos("donner")), ("Sand Harbor (option)", *pos("sandharbor"))],
                  towns=[("DONNER LAKE", 39.3070, -120.2640), ("LAKE TAHOE", 39.1900, -120.0300)],
-                 extras=[dict(label="Highway 28 to Sand Harbor (option)", kind="sr28")]),
+                 extras=[dict(label="Highway 267 to Kings Beach", kind="sr267"), dict(label="Highway 28 to Sand Harbor (option)", kind="sr28")]),
 }
 ROADS = json.loads((ROOT / "maps/data/roads.json").read_text())["elements"]
 OLYMPIC = json.loads((ROOT / "maps/data/olympic-valley.json").read_text())["elements"]
@@ -86,6 +86,12 @@ def render(key, m):
         if ex["kind"] == "olympic":
             for x in OLYMPIC:
                 d.line([P(p["lat"], p["lon"]) for p in x["geometry"]], fill=MAIN, width=4 * SCALE, joint="curve")
+        elif ex["kind"] == "sr267":
+            for x in ROADS:
+                if "CA 267" in x["tags"].get("ref", "").split(";"):
+                    pts = [P(p["lat"], p["lon"]) for p in x["geometry"] if p["lat"] <= 39.3300]
+                    if len(pts) > 1:
+                        d.line(pts, fill=MAIN, width=6 * SCALE, joint="curve")
         elif ex["kind"] == "sr28":
             for x in ROADS:
                 if any(r in ("CA 28", "NV 28") for r in x["tags"].get("ref", "").split(";")):
@@ -124,10 +130,12 @@ def render(key, m):
         if ex["kind"] == "sr28":
             dashed([(bx + pad, ey), (bx + pad + 60 * SCALE, ey)], MAIN, 5 * SCALE, dash=14, gap=10)
         else:
-            d.line((bx + pad, ey, bx + pad + 60 * SCALE, ey), fill=MAIN, width=4 * SCALE)
+            d.line((bx + pad, ey, bx + pad + 60 * SCALE, ey), fill=MAIN, width=(6 if ex["kind"] == "sr267" else 4) * SCALE)
         d.text((bx + pad + 75 * SCALE, ey), ex["label"], font=lf, fill=INK, anchor="lm")
     ax = 60 * SCALE if corner[1] == "r" else W - 60 * SCALE
     ay = 60 * SCALE
+    if m.get("arrow") == "bl":
+        ax, ay = 60 * SCALE, H - 150 * SCALE
     d.polygon([(ax, ay - 30 * SCALE), (ax - 16 * SCALE, ay + 16 * SCALE), (ax + 16 * SCALE, ay + 16 * SCALE)], fill=INK)
     d.text((ax, ay + 40 * SCALE), "N", font=nf, fill=INK, anchor="mm")
     cf = ImageFont.truetype(FONT, 20 * SCALE)
