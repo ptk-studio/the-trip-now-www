@@ -18,7 +18,7 @@ repo change.
 ### Type `content`
 - **Channels:**
   - Instagram https://www.instagram.com/thetripnow/
-  - Store https://shop.88eggs.com/store/the-trip-now
+  - Store https://platform.88eggs.com/store/the-trip-now
 - **Cadence:** not set yet (the kickoff, #1, sets it). Until then, the 7-day default applies to both
   channels.
 - **Pipeline:** 88eggs project `Web:TheTripNow`,
@@ -39,7 +39,7 @@ request per URL.
 |---|---|---|
 | https://thetripnow.com/ | 200 | `The Trip Now` |
 | https://www.instagram.com/thetripnow/ | 200 | `&#064;thetripnow` |
-| https://shop.88eggs.com/store/the-trip-now | 200 | `TheTripNow` |
+| https://platform.88eggs.com/store/the-trip-now | 200 | `TheTripNow` |
 
 - **Instagram:** the `@` is HTML-encoded in the page, so match `&#064;thetripnow`, never a literal
   `@thetripnow`. If Instagram redirects a signed-out fetch to a login page, that counts as **unknown**, not
@@ -65,7 +65,7 @@ curl -sL --max-time 15 -A 'Mozilla/5.0' -o /tmp/body -w '%{http_code}' <url>; gr
 Newest store product date:
 
 ```sh
-curl -sL --max-time 15 https://shop.88eggs.com/store/the-trip-now \
+curl -sL --max-time 15 https://platform.88eggs.com/store/the-trip-now \
   | grep -oE 'images-api\.printify\.com/mockup/[0-9a-f]{24}' | sed 's|.*/||' | sort -u \
   | while read id; do echo "$((16#${id:0:8})) $id"; done | sort -n | tail -1
 ```
