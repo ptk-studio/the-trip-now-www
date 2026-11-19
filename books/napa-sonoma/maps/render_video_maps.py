@@ -18,6 +18,9 @@ BOLD = str(Path.home() / "Library/Fonts/NotoSans-Bold.ttf")
 LAND, ROAD, MAIN, ALT, WATER, INK, PIN = "#F4EFE1", "#CFC6B2", "#7B2D4B", "#1F6F78", "#8FB8C8", "#1E3A3A", "#3B1F2B"
 W, H, S = 1920, 1080, 2
 
+# Town labels sit WEST of Highway 29 so their halos never cut a road (they had hidden parts of both highways).
+VALLEY_TOWNS = (("NAPA", 38.316, -122.375), ("YOUNTVILLE", 38.402, -122.445), ("ST. HELENA", 38.505, -122.555), ("CALISTOGA", 38.592, -122.655))
+SILVERADO = ("Silverado Trail", "Silverado Trail North", "Silverado Trail South")
 VALLEY = json.loads((ROOT / "maps/data/roads.json").read_text())["elements"]
 V = ROOT / "maps/data/video"
 SF = json.loads((V / "sf.json").read_text())["elements"]
@@ -147,8 +150,8 @@ def refs_between(els, refs, lat_min, lat_max):
 
 # Scene 2: the whole valley, Napa to Calistoga.
 c = Card(frame(38.44, -122.43, 0.42))
-c.roads(VALLEY, main_refs=("CA 29",), main_names=("Silverado Trail", "Silverado Trail North"))  # drawn again on top (cheap)
-for n, la, lo in (("NAPA", 38.299, -122.286), ("YOUNTVILLE", 38.402, -122.362), ("ST. HELENA", 38.505, -122.470), ("CALISTOGA", 38.579, -122.580)):
+c.roads(VALLEY, main_refs=("CA 29",), main_names=SILVERADO)
+for n, la, lo in VALLEY_TOWNS:
     c.label(n, la, lo, 34, bold=True)
 c.banner("The Napa Valley", "about 35 miles, Napa to Calistoga")
 c.legend([(MAIN, "Highway 29 and the Silverado Trail", False)])
@@ -209,9 +212,9 @@ c.save("napa-map-11-carneros.png")
 c = Card(frame(38.44, -122.43, 0.42))
 c.roads(VALLEY, main_refs=("CA 29",), alt_refs=(), skip_minor=False)
 for x in VALLEY:
-    if x["tags"].get("name") in ("Silverado Trail", "Silverado Trail North"):
+    if str(x["tags"].get("name", "")).startswith("Silverado Trail"):
         c.line(x["geometry"], ALT, 9)
-for n, la, lo in (("NAPA", 38.299, -122.286), ("YOUNTVILLE", 38.402, -122.362), ("ST. HELENA", 38.505, -122.470), ("CALISTOGA", 38.579, -122.580)):
+for n, la, lo in VALLEY_TOWNS:
     c.label(n, la, lo, 32, bold=True)
 c.banner("Two roads up the valley")
 c.legend([(MAIN, "Highway 29 (busier)", False), (ALT, "The Silverado Trail (quieter)", False)])
