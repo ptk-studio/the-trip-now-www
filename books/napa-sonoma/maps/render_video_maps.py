@@ -111,7 +111,7 @@ class Card:
     def banner(self, text, sub=None):
         f, g = ImageFont.truetype(BOLD, 44 * S), ImageFont.truetype(FONT, 30 * S)
         tw = max(self.d.textlength(text, font=f), self.d.textlength(sub or "", font=g)) + 56 * S
-        h = (96 if sub else 72) * S
+        h = (110 if sub else 72) * S
         self.d.rounded_rectangle((40 * S, 40 * S, 40 * S + tw, 40 * S + h), radius=14 * S, fill="white", outline=INK, width=2 * S)
         self.d.text((68 * S, 40 * S + 38 * S if sub else 40 * S + 36 * S), text, font=f, fill=INK, anchor="lm")
         if sub:
@@ -149,7 +149,7 @@ def refs_between(els, refs, lat_min, lat_max):
 
 
 # Scene 2: the whole valley, Napa to Calistoga.
-c = Card(frame(38.44, -122.43, 0.42))
+c = Card(frame(38.462, -122.43, 0.42))
 c.roads(VALLEY, main_refs=("CA 29",), main_names=SILVERADO)
 for n, la, lo in VALLEY_TOWNS:
     c.label(n, la, lo, 34, bold=True)
