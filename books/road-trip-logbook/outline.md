@@ -14,14 +14,14 @@ Undated, black and white, 120 pages, drawn by code (`gen.py`, $0). Price idea $8
 
 ## Page plan (120 pages)
 - **Front (5):** title; copyright and "this belongs to"; how to use; trip index (2 pages, 25 rows).
-- **Per trip (4 pages, x 25 = 100):** **Plan** (name, dates, who, from/to, miles, drive time, budget; 8 stops with booked / paid / deposit boxes and a confirmation number; a "before we go" checklist), **Route log** (9 lines: place, arrived, miles, wide notes), **Costs** (fuel log with odometer; lodging, food, tolls and parking, tickets, souvenirs, other; total, miles, MPG), **Memories** (best moment, best meal, weather, would we go again, 5-star rating, a photo box, two ticket boxes, next time).
-- **Back (15):** US road checklist (car, money and rules, winter and mountains, people); packing list; car check (10 items); tickets and receipts x 2; emergency numbers; notes x 8; the feedback page (R58).
+- **Per trip (4 pages, x 25 = 100):** **Plan** (name, dates, who, from/to, miles, drive time, budget; 8 stops with booked / paid / deposit boxes and a confirmation number; a "before we go" checklist), **Route log** (14 lines: place, arrived, miles, wide notes), **Costs** (fuel log with odometer; lodging, food, tolls and parking, tickets, souvenirs, other; total, miles, MPG), **Memories** (best moment, best meal, weather, would we go again, 5-star rating, a photo box, two ticket boxes, next time).
+- **Back (15):** US road checklist (car, money and rules, winter and mountains, people, kids, pets); packing list; car check (10 items); tickets and receipts x 2; emergency numbers; notes x 8; the feedback page (R58).
 
 ## Grey example hints (R100: dense early, sparser later)
 Trips 1-2: every field and the first rows have an example (a Napa weekend). Trips 3-5: the first row of each table only. Trips 6-25: none. The back pages keep a light hint on the first rows.
 
-## Checks (by code, all PASS on this build)
-6 x 9 in trim (432 x 648 pt); 120 pages (24 minimum); fonts embedded (Noto Sans only); nothing printed within 0.25 in of the trim edge (no bleed); margins inside 0.55 in outside, 0.75 in inside (KDP minimum 0.375 in for 120 pages).
+## Checks (`check.py`, all PASS on this build)
+6 x 9 in trim (432 x 648 pt); 120 pages (even, 24 minimum); fonts embedded (Noto Sans only); **nothing printed within 0.25 in of any trim edge, the tabs included** (it renders every page and reads the pixels; a tab touching the edge failed it); margins 0.55 in outside, 0.75 in inside (KDP minimum 0.375 in).
 
 ## Still to do before the Owner's yes (R51)
 Cover brief (Route 66 art reuse, text as overlay, never drawn by the model); listing and keywords; the KDP proof copy check at 100 %. **The Owner's yes comes on this page plan and the cover before production.**

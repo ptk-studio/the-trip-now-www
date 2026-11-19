@@ -16,9 +16,9 @@ BOX = "☐"
 
 CSS = """
 @page { size: 6in 9in; margin: 0.62in 0.55in 0.7in 0.75in; }
-@page :right { margin-left: 0.75in; margin-right: 0.55in; @top-right { content: string(tab); font: 700 11pt 'Noto Sans'; color: #fff; background: #222; padding: 3pt 9pt 3pt 12pt; margin-right: -0.3in; }
+@page :right { margin-left: 0.75in; margin-right: 0.55in; @top-right { content: string(tab); font: 700 11pt 'Noto Sans'; color: #fff; background: #222; padding: 3pt 9pt 3pt 12pt; margin-right: -0.3in; margin-top: 0.3in; margin-bottom: 0.08in; }
                @bottom-right { content: counter(page); font: 8.5pt 'Noto Sans'; color: #555; } }
-@page :left  { margin-left: 0.55in; margin-right: 0.75in; @top-left { content: string(tab); font: 700 11pt 'Noto Sans'; color: #fff; background: #222; padding: 3pt 12pt 3pt 9pt; margin-left: -0.3in; }
+@page :left  { margin-left: 0.55in; margin-right: 0.75in; @top-left { content: string(tab); font: 700 11pt 'Noto Sans'; color: #fff; background: #222; padding: 3pt 12pt 3pt 9pt; margin-left: -0.3in; margin-top: 0.3in; margin-bottom: 0.08in; }
                @bottom-left { content: counter(page); font: 8.5pt 'Noto Sans'; color: #555; } }
 @page plain:right { @top-right { content: none; background: none; } }
 @page plain:left { @top-left { content: none; background: none; } }
@@ -40,7 +40,7 @@ th { font-size: 7.4pt; text-align: left; border-bottom: 1pt solid #333; padding:
 td { border-bottom: 0.5pt solid #999; height: 0.36in; padding: 0 3pt; vertical-align: bottom; font-size: 8pt; overflow: hidden; white-space: nowrap; }
 td.box:after { content: ""; display: inline-block; width: 8.5pt; height: 8.5pt; border: 0.8pt solid #444; vertical-align: bottom; }
 td.box, th.box { text-align: center; }
-.tall td { height: 0.5in; }
+.tall td { height: 0.44in; }
 .lines { margin-bottom: 6pt; } .lines .l { border-bottom: 0.5pt solid #999; height: 0.3in; line-height: 0.3in; }
 .tape { border: 0.8pt dashed #777; color: #999; font-size: 7.6pt; display: flex; align-items: center; justify-content: center; }
 .tape.photo { height: 2.1in; } .tape.ticket { height: 1.15in; flex: 1; }
@@ -94,7 +94,7 @@ def trip(n):
 <ul class="chk cols"><li>Car check (page near the back)</li><li>Fuel up</li><li>Charge phones and the car charger</li><li>Download maps for the area</li><li>Packing list (back)</li><li>Tickets and reservations ready</li></ul>
 </section>'''
     b = f'''<section class="page trip-page" data-tab="{tab}"><h2>Route log</h2><p class="sub">One line a stop, with room to write what to remember and what to skip next time.</p>
-{table(["#", "Place", "Arrived", "Miles", "Notes"], ["0.25in", "1.15in", "0.55in", "0.5in", "2.25in"], 9,
+{table(["#", "Place", "Arrived", "Miles", "Notes"], ["0.25in", "1.15in", "0.55in", "0.5in", "2.25in"], 14,
   {0: ["1", "Home to Vacaville", "9:10", "62", "Coffee stop; the line was long, go earlier."], 1: ["2", "Napa, Oxbow Market", "11:20", "41", "Parking is free"]} if dense else ({0: ["1", "First stop"]} if some else None), "tall")}
 </section>'''
     c = f'''<section class="page trip-page" data-tab="{tab}"><h2>Costs</h2>
@@ -137,7 +137,7 @@ def back():
     p = ['''<section class="page plain"><h2>Road trip checklist (US)</h2><div class="cols"><h3>Car</h3><ul class="chk"><li>Registration and insurance card</li><li>Spare tire, jack, lug wrench</li><li>Jumper cables or a jump starter</li><li>Flashlight and spare batteries</li><li>First-aid kit</li><li>Water and snacks</li><li>Phone charger and mount</li><li>Windshield washer fluid</li></ul>
 <h3>Money and rules</h3><ul class="chk"><li>Cash for tolls and parking</li><li>Toll pass or toll-by-plate plan</li><li>Park pass or reservation</li><li>Fuel stops on remote stretches</li><li>Rest stops every two hours</li></ul>
 <h3>Winter and mountains</h3><ul class="chk"><li>Tire chains that fit, tried once at home</li><li>Check road and chain controls before you go</li><li>Ice scraper, gloves, blanket</li><li>Full tank before a pass</li><li>Plan to arrive before dark</li></ul>
-<h3>People</h3><ul class="chk"><li>Who drives which leg</li><li>Medicines</li><li>ID for everyone</li><li>Pet needs</li></ul></div></section>''',
+<h3>People</h3><ul class="chk"><li>Who drives which leg</li><li>Medicines</li><li>ID for everyone</li></ul><h3>Kids</h3><ul class="chk"><li>Car seats and boosters fitted</li><li>Snacks, water, games</li><li>Spare clothes and wipes</li></ul><h3>Pets</h3><ul class="chk"><li>Leash, bowl, water, bags</li><li>Vaccination papers</li><li>Never leave a pet in a parked car</li></ul></div></section>''',
          '<section class="page plain"><h2>Packing list</h2><div class="cols"><h3>Clothes</h3>' + lines(6) + '<h3>Toiletries</h3>' + lines(4) + '<h3>Gear</h3>' + lines(6) + '<h3>Food and drink</h3>' + lines(4) + '</div></section>',
          '<section class="page plain"><h2>Car check</h2><p class="sub">Before every long trip.</p>' + table(["Check", BOX, "Note"], ["2.5in", "0.5in", "1.7in"], 10, {i: [x] for i, x in enumerate(["Tire pressure, spare included", "Tire tread", "Oil level", "Coolant", "Washer fluid", "Lights and signals", "Wipers", "Brakes feel normal", "Battery terminals clean", "Warning lights off"])}) + '<div class="row2">' + field("Date") + field("Odometer") + '</div></section>']
     for k in range(2):
