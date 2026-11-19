@@ -1,0 +1,17 @@
+interior.pdf: 24 pages, 6.000 x 9.000 in (OK)
+  KDP paperback minimum 24 pages: OK
+  fonts embedded: yes (Noto-Sans, Noto-Sans-Bold, Noto-Sans-Italic, Noto-Serif, Noto-Serif-Bold, Noto-Serif-Italic)
+  image images/day1-vikingsholm.jpg: 2400x1600px -> 505 dpi at 4.75 in wide (OK)
+  image images/day2-tahoecity.jpg: 2400x1081px -> 505 dpi at 4.75 in wide (OK)
+  image images/day3-donner.jpg: 2400x1600px -> 505 dpi at 4.75 in wide (OK)
+  image images/map-day1.png: 1425x679px -> 300 dpi at 4.75 in wide (OK)
+  image images/map-day2.png: 1425x1080px -> 300 dpi at 4.75 in wide (OK)
+  image images/map-day3.png: 1425x814px -> 300 dpi at 4.75 in wide (OK)
+  image images/cover.jpg: 1946x2880px -> 311 dpi at 6.25 in wide (OK)
+cover.pdf: 12.3040 x 9.2500 in; spine 0.054 in for 24 pages on white paper (expected 12.3040 x 9.2500: OK)
+  spine text: not allowed under 80 pages (KDP), spine left plain
+kindle-cover.jpg: 1800x2700px, front panel; title text found on it: OK (upload this as the KDP Kindle cover; OK)
+book.epub: 0.82 MB (OK); EPUBCheck exit 0
+  No errors or warnings detected.
+  Messages: 0 fatals / 0 errors / 0 warnings / 0 infos
+back page: https://thetripnow.com/ -> HTTP 200 (OK); EPUB link https://thetripnow.com/?utm_source=book&utm_medium=print&utm_campaign=lake-tahoe; print shows 'thetripnow.com'
