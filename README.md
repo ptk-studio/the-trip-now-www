@@ -5,7 +5,7 @@ The website for **The Trip Now**, a travel community brand: https://thetripnow.c
 ## What it is
 
 A single static links page (`index.html`, no JavaScript, no build step). It points to:
-- the poster store, https://shop.88eggs.com/store/the-trip-now;
+- the poster store, https://platform.88eggs.com/store/the-trip-now;
 - Instagram, [@thetripnow](https://www.instagram.com/thetripnow/);
 - PTK Studio.
 

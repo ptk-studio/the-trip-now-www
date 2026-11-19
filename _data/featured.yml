@@ -1,16 +1,16 @@
 # Featured products on the landing page (the-trip-now-www#12, marketing plan action 4).
-# Picked 2026-11-18 from https://shop.88eggs.com/store/the-trip-now (24 items, no posters listed yet):
+# Picked 2026-11-18 from https://platform.88eggs.com/store/the-trip-now (24 items, no posters listed yet):
 # mugs first, one per destination, newest first; then the newest tee and the journal.
 # Every link gets UTM tags in _includes/featured-list.html; assets/featured-utm.js swaps utm_source for the
 # channel a visitor arrived from (?utm_source=instagram|youtube|pinterest on thetripnow.com).
 # gift_collection: set url when the gift collection (the-trip-now-www#38) is live; the link appears then.
 gift_collection:
   # Live on the Printify Pop-Up store since 2026-11-18 (20 products, the-trip-now-www#38). The 88eggs store shows the
-  # same collection after its nightly sync, at shop.88eggs.com/store/the-trip-now?collection=… (switch then if wanted).
+  # same collection after its nightly sync, at platform.88eggs.com/store/the-trip-now?collection=… (switch then if wanted).
   url: "https://the-trip-now.printify.me/collection/christmas-gifts-for-travelers"
   label: "Christmas gifts for travelers"
 store:
-  url: "https://shop.88eggs.com/store/the-trip-now"
+  url: "https://platform.88eggs.com/store/the-trip-now"
 products:
   - title: "Trolltunga, Norway"
     kind: "Mug"

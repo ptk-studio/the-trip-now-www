@@ -29,7 +29,7 @@ pre() {
   else ok "no secret-like strings in the diff"; fi
   # 3. index.html still links the store and the title is intact
   grep -q 'The Trip Now' index.html && ok "index.html has the site title" || bad "index.html lost 'The Trip Now'"
-  grep -q 'shop.88eggs.com/store/the-trip-now' index.html && ok "index.html links the store" || bad "index.html lost the store link"
+  grep -q 'platform.88eggs.com/store/the-trip-now' index.html && ok "index.html links the store" || bad "index.html lost the store link"
 }
 
 post() {
@@ -42,7 +42,7 @@ post() {
     c=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/${p%/}"); c2=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/$p")
     [ "$c" = 404 ] && [ "$c2" = 404 ] && ok "/$p not served (404)" || bad "/$p is served ($c/$c2)"
   done
-  c=$(curl -s -o /dev/null -w '%{http_code}' https://shop.88eggs.com/store/the-trip-now)
+  c=$(curl -s -o /dev/null -w '%{http_code}' https://platform.88eggs.com/store/the-trip-now)
   [ "$c" = 200 ] && ok "store page 200" || bad "store page -> $c"
 }
 
