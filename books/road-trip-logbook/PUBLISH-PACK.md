@@ -3,6 +3,7 @@
 The Owner's yes on the page plan and the front cover: **T2-28, 2026-11-18** (*"Yes, as is"*, after the cover and pages 6 to 9 and 106). **The Publish yes and the proof come later (R51).** For the **January** paperback slot (t1-manager's queue). t2-worker1, ttn#39.
 
 ## Files (a draft GitHub release on this repo, so the Owner or t1-worker1 can upload from any machine)
+**Download:** https://github.com/ptk-studio/the-trip-now-www/releases/tag/untagged-daad209f63c880f121cd (`interior.pdf`, `cover.pdf`; a draft release, repo access needed).
 - **`interior.pdf`**: 120 pages, 6 × 9 in, black and white, fonts embedded. `python3 books/road-trip-logbook/gen.py <out>`; checked by `check.py`.
 - **`cover.pdf`**: the wrap, back + spine + front with 0.125 in bleed, **12.5202 × 9.25 in** at the spine width for 120 pages on white paper (0.2702 in). `python3 books/road-trip-logbook/cover.py <out> 120`.
 
