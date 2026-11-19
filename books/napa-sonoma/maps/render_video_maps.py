@@ -114,11 +114,12 @@ class Card:
         if sub:
             self.d.text((68 * S, 40 * S + 78 * S), sub, font=g, fill="#4A5A50", anchor="lm")
 
-    def legend(self, rows):
+    def legend(self, rows, corner="bl"):
         f = ImageFont.truetype(FONT, 30 * S)
         tw = max(self.d.textlength(t, font=f) for _, t, _ in rows) + 120 * S
         h = (len(rows) * 46 + 28) * S
-        x0, y0 = 40 * S, (H - 40) * S - h - 38 * S
+        x0 = 40 * S if corner[1] == "l" else (W - 40) * S - tw
+        y0 = (H - 40) * S - h - 38 * S if corner[0] == "b" else 40 * S
         self.d.rounded_rectangle((x0, y0, x0 + tw, y0 + h), radius=12 * S, fill="white", outline=INK, width=2 * S)
         for i, (color, text, dashed) in enumerate(rows):
             y = y0 + (14 + 23 + 46 * i) * S
@@ -154,7 +155,7 @@ c.legend([(MAIN, "Highway 29 and the Silverado Trail", False)])
 c.save("napa-map-02-valley.png")
 
 # Scene 5: San Francisco to Napa, both routes.
-c = Card(frame(37.99, -122.33, 0.82))
+c = Card(frame(37.95, -122.30, 0.80))
 c.bays()
 A = refs_between(SF, ("US 101", "US 101;CA 1"), 37.80, 38.13) + refs_between(SF, ("CA 37",), 38.0, 38.3) + refs_between(SF, ("CA 29", "CA 12;CA 29"), 38.12, 38.34)
 B = refs_between(SF, ("I 80",), 37.79, 38.14)
@@ -170,7 +171,7 @@ for n, la, lo in (("SAN FRANCISCO", 37.745, -122.545), ("OAKLAND", 37.80, -122.1
 c.label("SAN FRANCISCO BAY", 37.64, -122.27, 26, "#4C7686")
 c.label("SAN PABLO BAY", 38.04, -122.36, 26, "#4C7686")
 c.banner("San Francisco to Napa", "about 50 miles")
-c.legend([(MAIN, "Golden Gate Bridge, Highways 101, 37 and 29", False), (ALT, "Bay Bridge and Interstate 80", False)])
+c.legend([(MAIN, "Golden Gate Bridge, Highways 101, 37 and 29", False), (ALT, "Bay Bridge and Interstate 80", False)], corner="tr")
 c.save("napa-map-05-routes.png")
 
 # Scene 10: the oxbow bend of the Napa River at the market.
