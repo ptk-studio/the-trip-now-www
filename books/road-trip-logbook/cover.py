@@ -25,8 +25,8 @@ html = f'''<!doctype html><meta charset="utf-8"><style>
 .wrap svg {{ position: absolute; left: 0; top: 0; }}
 .title {{ position: absolute; top: 0.95in; left: 0; right: 0; text-align: center; color: {CREAM}; font-size: 40pt; line-height: 1.05; font-weight: 700; }}
 .sub {{ position: absolute; top: 2.75in; left: 0; right: 0; text-align: center; color: {CREAM}; font-family: 'Noto Sans', sans-serif; font-size: 13pt; letter-spacing: 0.02em; }}
-.brand {{ position: absolute; bottom: 0.7in; left: 0; right: 0; text-align: center; color: {SAND}; font-family: 'Noto Sans', sans-serif; font-size: 10pt; letter-spacing: 0.22em; }}
-</style><div class="wrap">{svg}<div class="title">Road Trip<br>Logbook</div><div class="sub">25 trips: plan it, log it, remember it</div><div class="brand">THETRIPNOW</div></div>'''
+.brand {{ position: absolute; bottom: 0.62in; left: 0; right: 0; text-align: center; font-family: 'Noto Sans', sans-serif; font-size: 10pt; letter-spacing: 0.22em; }} .brand span {{ display: inline-block; background: {TEAL}; color: {SAND}; padding: 7pt 16pt 7pt 20pt; border: 1pt solid {SAND}; border-radius: 4pt; }}
+</style><div class="wrap">{svg}<div class="title">Road Trip<br>Logbook</div><div class="sub">25 trips: plan it, log it, remember it</div><div class="brand"><span>THETRIPNOW</span></div></div>'''
 (OUT / "front-cover.html").write_text(html)
 subprocess.run(["weasyprint", str(OUT / "front-cover.html"), str(OUT / "front-cover.pdf")], check=True, capture_output=True)
 subprocess.run(["pdftoppm", "-r", "300", "-singlefile", "-png", str(OUT / "front-cover.pdf"), str(OUT / "front-cover")], check=True)
