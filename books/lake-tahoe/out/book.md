@@ -55,6 +55,8 @@ Prices, hours and seasons change, so check before you go.
 
 *Vikingsholm, Emerald Bay. Photo: Mike McBey · CC BY 2.0 · Wikimedia Commons*
 
+![Map of Day 1](epub-img/map-day1.jpg){.day-map}
+
 ## Stateline and the Heavenly Gondola
 
 Start at Heavenly Village, where the California–Nevada line crosses US-50. On the Nevada side, Stateline's casino hotels are all a short walk from the village. The Heavenly Gondola climbs from the village plaza; summer sightseeing ran about 10 am to 5 pm daily in 2025; hours change each year, so check before you go, and see skiheavenly.com for tickets.
@@ -85,14 +87,13 @@ Just north of Emerald Bay, D.L. Bliss State Park reopened for camping and day us
 Prices, hours and seasons change, so check before you go.
 
 
-![Map of Day 1](epub-img/map-day1.jpg){.day-map}
-
-
 # Day 2: The West Shore to Tahoe City
 
 ![](epub-img/day2-tahoecity.jpg)
 
 *Tahoe City, on the north-west shore. Photo: Bohao Zhao · CC BY 3.0 · Wikimedia Commons (cropped)*
+
+![Map of Day 2](epub-img/map-day2.jpg){.day-map}
 
 ## Sugar Pine Point and the Ehrman Mansion
 
@@ -110,7 +111,7 @@ In Tahoe City, the Gatekeeper's Museum stands beside the Lake Tahoe Dam, where t
 
 North of Tahoe City, Olympic Valley is home to Palisades Tahoe. It was renamed Palisades Tahoe on September 13, 2021, after consultation with local Washoe groups.
 
-> **Did you know?** The valley hosted the 1960 Winter Olympics, the first Winter Games shown on American television.
+> **Did you know?** The valley hosted the 1960 Winter Olympics.
 
 ## Where to stay
 
@@ -123,14 +124,13 @@ North of Tahoe City, Olympic Valley is home to Palisades Tahoe. It was renamed P
 Prices, hours and seasons change, so check before you go.
 
 
-![Map of Day 2](epub-img/map-day2.jpg){.day-map}
-
-
 # Day 3: Truckee and the North Shore
 
 ![](epub-img/day3-donner.jpg)
 
 *Donner Lake, near Truckee. Photo: Mark Harpur · CC0 · Wikimedia Commons*
+
+![Map of Day 3](epub-img/map-day3.jpg){.day-map}
 
 ## Truckee's Commercial Row
 
@@ -159,9 +159,6 @@ From the North Shore, Sand Harbor (a Nevada state park on the East Shore) is an 
 Prices, hours and seasons change, so check before you go.
 
 
-![Map of Day 3](epub-img/map-day3.jpg){.day-map}
-
-
 # Practical Matters: Getting There, Getting Around, Winter
 
 ## Getting there
@@ -170,7 +167,7 @@ South Lake Tahoe is about 190–200 miles from San Francisco, roughly 3.5–4 ho
 
 ## Getting around without a car
 
-Two free, on-demand shuttles run around the lake. TART Connect covers North Lake Tahoe and Truckee (its summer 2026 season ran June 18 to September 7 in Truckee and July 1 to September 7 around North Lake Tahoe), and Lake Link covers South Lake Tahoe and Stateline; book in their apps. The two don't connect, so check the transit sites for a ride between the shores.
+Two free, on-demand shuttles run around the lake. TART Connect covers North Lake Tahoe and Truckee (it runs in summer and winter seasons, so check its site for this year's dates), and Lake Link covers South Lake Tahoe and Stateline; book in their apps. The two don't connect, so check the transit sites for a ride between the shores.
 
 ## Winter box: chains and closures
 

@@ -61,3 +61,6 @@ ul ul { list-style-type: disc; }
 .credits a, a.uri { hyphens: none; overflow-wrap: anywhere; word-break: normal; }
 blockquote { break-inside: avoid; }
 img.day-map { break-before: avoid !important; margin-top: 8pt; }
+figure { break-inside: avoid; }
+figure figcaption { display: none; }
+.credits a, a.uri { color: #000; text-decoration: none; }

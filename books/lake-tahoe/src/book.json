@@ -105,5 +105,6 @@
   "toc_pages": true,
   "no_hyphen_addresses": true,
   "relative_paths": true,
-  "autolink_credits": true
+  "autolink_credits": true,
+  "map_after_title": true
 }

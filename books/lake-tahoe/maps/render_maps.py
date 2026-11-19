@@ -23,7 +23,7 @@ MAPS = {
     "day1": dict(title="Day 1: South Lake Tahoe and Emerald Bay", bbox=(38.915, -120.17, 39.015, -119.90), main=("US 50", "CA 89"),
                  main_label="US-50 and Highway 89", legend="tr",
                  stops=[("Heavenly Village", *pos("heavenly")), ("Emerald Bay and Vikingsholm", *pos("vikingsholm")), ("D.L. Bliss State Park", *pos("dlbliss"))],
-                 towns=[("SOUTH LAKE TAHOE", 38.9245, -120.0850), ("LAKE TAHOE", 38.9850, -120.0000)]),
+                 towns=[("SOUTH LAKE TAHOE", 38.9270, -119.9350), ("LAKE TAHOE", 38.9850, -120.0000)]),
     "day2": dict(title="Day 2: The West Shore to Tahoe City", bbox=(39.025, -120.40, 39.225, -120.06), main=("CA 89",),
                  main_label="Highway 89", legend="bl",
                  stops=[("Sugar Pine Point (Ehrman Mansion)", *pos("sugarpine")), ("Tahoe City", *pos("tahoecity")), ("Palisades Tahoe", *pos("olympicvalley"))],
@@ -89,7 +89,7 @@ def render(key, m):
         elif ex["kind"] == "sr267":
             for x in ROADS:
                 if "CA 267" in x["tags"].get("ref", "").split(";"):
-                    pts = [P(p["lat"], p["lon"]) for p in x["geometry"] if p["lat"] <= 39.3300]
+                    pts = [P(p["lat"], p["lon"]) for p in x["geometry"] if p["lat"] <= 39.3380]
                     if len(pts) > 1:
                         d.line(pts, fill=MAIN, width=6 * SCALE, joint="curve")
         elif ex["kind"] == "sr28":

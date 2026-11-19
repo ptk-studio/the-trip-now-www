@@ -97,7 +97,12 @@ def chapters():
         md = reader_text((SRC / "chapters" / f"{ch['file']}.md").read_text(encoding="utf-8"))
         if ch.get("map"):
             # optional day map, placed at the end of the chapter (print and EPUB)
-            md += f"\n\n![Map of {ch.get('map_title', 'the day')}]({ROOT / ch['map']}){{.day-map}}\n"
+            fig = f"![Map of {ch.get('map_title', 'the day')}]({ROOT / ch['map']}){{.day-map}}"
+            if CFG.get("map_after_title"):   # opt-in: the map right under the chapter title, so the text flows after it and no page is left half empty
+                head, sep, rest = md.partition("\n\n")
+                md = f"{head}\n\n{fig}\n\n{rest}"
+            else:
+                md += f"\n\n{fig}\n"
         yield ch, md
 
 
