@@ -1,0 +1,72 @@
+{
+ "heavenly": {
+  "q": "Heavenly Village, South Lake Tahoe",
+  "name": "Heavenly Village Way, Pinewood Park, Stateline, Bijou, South Lake Taho",
+  "lat": 38.9553331,
+  "lon": -119.9426636,
+  "osm": "way/1207093516"
+ },
+ "vikingsholm": {
+  "q": "Vikingsholm",
+  "name": "Vikingsholm, Rubicon Trail, El Dorado County, California, 96140, Unite",
+  "lat": 38.952217,
+  "lon": -120.1067399,
+  "osm": "relation/18044977"
+ },
+ "dlbliss": {
+  "q": "D. L. Bliss State Park",
+  "name": "D.L. Bliss State Park, El Dorado County, California, United States",
+  "lat": 38.9856179,
+  "lon": -120.1013677,
+  "osm": "relation/181739"
+ },
+ "sugarpine": {
+  "q": "Ehrman Mansion Tahoma",
+  "name": "Hellman-Ehrman Mansion, Ca State Park Road, Tahoma",
+  "lat": 39.05303,
+  "lon": -120.11408,
+  "osm": "way/376167056"
+ },
+ "tahoecity": {
+  "q": "Gatekeeper's Museum, Tahoe City",
+  "name": "Gatekeeper's Museum, West Lake Boulevard, Tahoe City, Placer County, C",
+  "lat": 39.1668312,
+  "lon": -120.1433923,
+  "osm": "node/2415693871"
+ },
+ "olympicvalley": {
+  "q": "Palisades Tahoe, Olympic Valley",
+  "name": "Palisades Tahoe, 1750, Village East Road, Olympic Valley, Placer Count",
+  "lat": 39.1966225,
+  "lon": -120.2345468,
+  "osm": "way/682222935"
+ },
+ "truckee": {
+  "q": "Truckee, Nevada County, California",
+  "name": "Truckee, Nevada County, California, United States",
+  "lat": 39.3279454,
+  "lon": -120.1835765,
+  "osm": "relation/11049252"
+ },
+ "donner": {
+  "q": "Donner Memorial State Park Truckee museum",
+  "name": "Donner Memorial State Park, Museum Lakeside Trail (information point)",
+  "lat": 39.32397,
+  "lon": -120.23226,
+  "osm": "node/14093610720"
+ },
+ "sandharbor": {
+  "q": "Sand Harbor State Park, Nevada",
+  "name": "Sand Harbor Beach State Recreation Area, Washoe County, Nevada, United",
+  "lat": 39.1976562,
+  "lon": -119.9310635,
+  "osm": "relation/6520254"
+ },
+ "campr": {
+  "q": "Camp Richardson, South Lake Tahoe",
+  "name": "Camp Richardson Hotel, 1900, 15th Street Bike, Jameson Beach Club, Cam",
+  "lat": 38.9345818,
+  "lon": -120.0408693,
+  "osm": "way/925109075"
+ }
+}

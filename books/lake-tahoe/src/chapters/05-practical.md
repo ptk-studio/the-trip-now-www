@@ -6,7 +6,7 @@ South Lake Tahoe is about 190–200 miles from San Francisco, roughly 3.5–4 ho
 
 ## Getting around without a car
 
-Two free, on-demand shuttles run around the lake. [T13] TART Connect covers North Lake Tahoe and Truckee (its summer 2026 season ran July 1 to September 7), and Lake Link covers South Lake Tahoe and Stateline; book in their apps. [T13] The two don't connect, so use the TART bus between the shores. [T13]
+Two free, on-demand shuttles run around the lake. [T13] TART Connect covers North Lake Tahoe and Truckee (it runs in summer and winter seasons, so check its site for this year's dates), and Lake Link covers South Lake Tahoe and Stateline; book in their apps. [T13] The two don't connect, so check the transit sites for a ride between the shores. [T13]
 
 ## Winter box: chains and closures
 

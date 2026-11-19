@@ -58,7 +58,8 @@ def reader_text(md: str) -> str:
 
 # ---------------------------------------------------------------- photo credits (book.json "photo_credits": true)
 LICENCE_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/", "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
-               "CC0": "https://creativecommons.org/publicdomain/zero/1.0/", "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/"}
+               "CC0": "https://creativecommons.org/publicdomain/zero/1.0/", "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/",
+               "CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/"}
 
 
 def credits() -> dict:
@@ -69,7 +70,12 @@ def credits() -> dict:
 
 def short_credit(image: str) -> str:
     c = credits().get(Path(image).name)
-    return f"Photo: {c['artist']} · {c['license']} · Wikimedia Commons" if c else ""
+    if not c:
+        return ""
+    cap = f"Photo: {c['artist']} · {c['license']} · Wikimedia Commons"
+    if c.get("changes"):      # CC BY: changes must be stated ("cropped")
+        cap += f" ({c['changes']})"
+    return f"{c['place']}. {cap}" if c.get("place") else cap
 
 
 def credits_md() -> str:
@@ -78,7 +84,9 @@ def credits_md() -> str:
     for c in credits().values():
         lic = c["license"]
         lic_txt = f"[{lic}]({LICENCE_URL[lic]})" if lic in LICENCE_URL else lic
-        out.append(f"- *{c['title'].rsplit('.', 1)[0]}* by {c['artist']}, {lic_txt}, via Wikimedia Commons: {c['page']}")
+        by = f"{c['artist']} ({c['changes']})" if c.get("changes") else c["artist"]
+        page = f"<{c['page']}>" if CFG.get("autolink_credits") else c["page"]   # <url>: underscores in the address are not read as italics
+        out.append(f"- *{c['title'].rsplit('.', 1)[0]}* by {by}, {lic_txt}, via Wikimedia Commons: {page}")
     if CFG.get("map_credit"):
         out += ["", "## Maps", "", CFG["map_credit"]]
     return "\n".join(out) + "\n"
@@ -89,7 +97,15 @@ def chapters():
         md = reader_text((SRC / "chapters" / f"{ch['file']}.md").read_text(encoding="utf-8"))
         if ch.get("map"):
             # optional day map, placed at the end of the chapter (print and EPUB)
-            md += f"\n\n![Map of {ch.get('map_title', 'the day')}]({ROOT / ch['map']}){{.day-map}}\n"
+            fig = f"![Map of {ch.get('map_title', 'the day')}]({ROOT / ch['map']}){{.day-map}}"
+            if CFG.get("map_after_title"):   # opt-in: the map right under the chapter title, so the text flows after it and no page is left half empty
+                head, sep, rest = md.partition("\n\n")
+                md = f"{head}\n\n{fig}\n\n{rest}"
+            else:
+                md += f"\n\n{fig}\n"
+        if CFG.get("day_recap") and ch.get("recap"):   # opt-in: an "at a glance" box and a ruled Notes area at the end of the chapter (text already in the chapter)
+            rec = reader_text((SRC / "chapters" / f"{ch['recap']}.md").read_text(encoding="utf-8"))
+            md += f"\n\n::: {{.recap}}\n{rec}\n:::\n\n::: {{.notes-area}}\n**Notes**\n\n" + "\n\n".join(["::: {.rule}\n&nbsp;\n:::"] * int(ch.get("notes_lines", 8))) + "\n:::\n"
         yield ch, md
 
 
@@ -98,6 +114,14 @@ def md_to_html(md: str) -> str:
     if r.returncode:
         sys.exit(r.stderr)
     return r.stdout
+
+
+def addr_nohyphen(h: str) -> str:
+    """Opt-in (book.json "no_hyphen_addresses"): never hyphenate a web address in the print interior ('skiheav-enly.com')."""
+    if not CFG.get("no_hyphen_addresses"):
+        return h
+    pat = r"(?<![\w@/.=-])((?:[A-Za-z0-9-]+\.)+(?:com|org|gov|net)(?:/[\w./-]*)?)"
+    return re.sub(pat + r"(?![^<]*>)", r'<span style="hyphens: none">\1</span>', h)
 
 
 def image_px(path: Path):
@@ -159,37 +183,41 @@ def build_interior() -> Path:
 <section class="toc"><h1>Contents</h1><ol>"""]
     toc = []
     body = []
-    for ch, md in chapters():
+    pg = bool(CFG.get("toc_pages"))      # opt-in: page numbers in the Contents (WeasyPrint target-counter)
+    def li(label: str, anchor: str) -> str:
+        return f'<li><a href="#{anchor}">{html.escape(label)}</a></li>' if pg else f"<li>{html.escape(label)}</li>"
+    for n, (ch, md) in enumerate(chapters()):
         title = re.search(r"^# (.+)$", md, re.M).group(1)
-        toc.append(f"<li>{html.escape(title)}</li>")
+        toc.append(li(title, f"ch{n}"))
         img = f'<img class="section-art" src="{ROOT / ch["image"]}" alt="">' if ch["image"] else ""
         if ch["image"] and short_credit(ch["image"]):
             img += f'<p class="photo-credit">{html.escape(short_credit(ch["image"]))}</p>'
-        body.append(f'<section class="chapter">{img}{md_to_html(md)}</section>')
-    extras = f"<li>{BACK_TITLE}</li><li>Sources and credits</li><li>Trip planner</li>"
+        body.append(f'<section class="chapter" id="ch{n}">{img}{addr_nohyphen(md_to_html(md))}</section>')
+    extras = (li(BACK_TITLE, "back") + li("Sources and credits", "credits") + li("Trip planner", "planner0")) if pg \
+        else f"<li>{BACK_TITLE}</li><li>Sources and credits</li><li>Trip planner</li>"
     if CFG.get("toc_extras_unnumbered"):   # #9 review: the back pages aren't chapters
         parts.append("".join(toc) + f'</ol><ul class="toc-extra">{extras}</ul></section>')
     else:
         parts.append("".join(toc) + extras + "</ol></section>")
     if CFG.get("at_a_glance"):             # one page after the contents (src/<file>.md)
         glance = (SRC / f"{CFG['at_a_glance']}.md").read_text(encoding="utf-8")
-        parts.append(f'<section class="chapter glance">{md_to_html(reader_text(glance))}</section>')
+        parts.append(f'<section class="chapter glance">{addr_nohyphen(md_to_html(reader_text(glance)))}</section>')
     parts += body
     def nb(t: str) -> str:  # never hyphenate the brand or the address ("TheT-ripNow", "thet-ripnow.com")
         t = html.escape(t)
         for w in ("thetripnow.com", "TheTripNow"):
             t = t.replace(w, f'<span style="hyphens: none; white-space: nowrap">{w}</span>')
         return t
-    parts.append(f'<section class="chapter back-page"><h1>{BACK_TITLE}</h1><p>{nb(BACK_TEXT)}</p>'
+    parts.append(f'<section class="chapter back-page" id="back"><h1>{BACK_TITLE}</h1><p>{nb(BACK_TEXT)}</p>'
                  f'<p class="back-url">thetripnow.com</p><p class="review-ask">{nb(back_note())}</p></section>')
     sources = credits_md() if CFG.get("sources_note") else (SRC / "sources.md").read_text(encoding="utf-8")
-    parts.append(f'<section class="chapter credits">{md_to_html(sources)}</section>')
+    parts.append(f'<section class="chapter credits" id="credits">{addr_nohyphen(md_to_html(sources))}</section>')
     if CFG.get("planners"):                # #9 re-score: one page per day, grey example hints (R100)
-        for p in CFG["planners"]:
+        for pi, p in enumerate(CFG["planners"]):
             hints = "".join(f'<div class="line example">{html.escape(x)}</div>' for x in p.get("examples", []))
             lines = "".join('<div class="line"></div>' for _ in range(22 - len(p.get("examples", []))))
-            parts.append(f'<section class="planner"><h2>{html.escape(p["title"])}</h2>'
-                         f'<p class="planner-row">Date ____________</p>{hints}{lines}</section>')
+            parts.append(f'<section class="planner" id="planner{pi}"><h2>{html.escape(p["title"])}</h2>'
+                         f'{"<p class=planner-row>Date ____________</p>" if p.get("date", True) else ""}{hints}{lines}</section>')
         for _ in range(CFG.get("notes_pages", 0)):
             lines = "".join('<div class="line"></div>' for _ in range(24))
             parts.append(f'<section class="planner"><h2>Notes</h2>{lines}</section>')
@@ -383,6 +411,10 @@ def main():
     code = site_status()
     report.append(f"back page: {SITE} -> HTTP {code} ({'OK' if code == 200 else 'CHECK THE LINK'}); "
                   f"EPUB link {utm_url()}; print shows 'thetripnow.com'")
+    if CFG.get("relative_paths"):           # no machine paths in out/book.md, interior.html, cover.html
+        for f in ("book.md", "interior.html", "cover.html"):
+            t = (OUT / f).read_text(encoding="utf-8")
+            (OUT / f).write_text(t.replace(f"{OUT}/", "").replace(f"{ROOT}/", "../"), encoding="utf-8")
     (OUT / "report.txt").write_text("\n".join(report) + "\n", encoding="utf-8")
     print("\n".join(report))
 

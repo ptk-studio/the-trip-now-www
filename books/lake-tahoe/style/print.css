@@ -1,0 +1,73 @@
+/* Print interior, 6x9 in trim, no bleed (art sits inside the margins).
+   KDP margins for 24–150 pages: inside >= 0.375 in, outside >= 0.25 in. We use more. */
+@page { size: 6in 9in; margin: 0.7in 0.55in 0.75in 0.75in;
+        @bottom-center { content: counter(page); font: 9pt 'Noto Sans'; color: #555; } }
+@page :left  { margin-left: 0.55in; margin-right: 0.75in; }
+@page :right { margin-left: 0.75in; margin-right: 0.55in; }
+@page :first { @bottom-center { content: none; } }
+@page blank { @bottom-center { content: none; } }
+
+html { font-family: 'Noto Serif', serif; font-size: 10.5pt; line-height: 1.45; color: #1a1a1a; hyphens: auto; }
+h1 { font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 20pt; line-height: 1.15; color: #123B3B; margin: 0 0 12pt; }
+h2 { font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 12.5pt; color: #123B3B; margin: 14pt 0 4pt; break-after: avoid; }
+p { margin: 0 0 7pt; orphans: 2; widows: 2; }
+ul, ol { margin: 0 0 8pt; padding-left: 16pt; }
+li { margin-bottom: 3pt; }
+
+.title-page { page: blank; text-align: center; padding-top: 2.4in; break-after: page; }
+.book-title { font-family: 'Noto Serif', serif; font-size: 26pt; }
+.book-subtitle { font-family: 'Noto Sans', sans-serif; font-size: 12pt; color: #4A5A50; }
+.imprint { margin-top: 3in; font-family: 'Noto Sans', sans-serif; letter-spacing: 0.08em; }
+.copyright { page: blank; padding-top: 6in; font-size: 8.5pt; color: #444; break-after: page; }
+.toc { break-after: page; } .toc ol { font-size: 11pt; line-height: 1.9; }
+.chapter { break-before: page; }
+.section-art { display: block; width: 100%; height: 2.6in; object-fit: cover; margin: 0 0 14pt; }
+.planner { break-before: page; }
+.planner-row { font-family: 'Noto Sans', sans-serif; margin-bottom: 10pt; }
+.planner .line { border-bottom: 0.5pt solid #9aa; height: 0.27in; }
+.planner .line.example { color: #9aa3a3; font-family: 'Noto Sans', sans-serif; font-style: italic; font-size: 8.5pt;
+                         line-height: 0.27in; overflow: hidden; white-space: nowrap; }
+
+/* standard back page */
+.back-page { text-align: center; padding-top: 2.2in; }
+.back-page .back-url { font-family: "Noto Sans"; font-weight: 700; font-size: 18pt; margin-top: 0.3in; }
+.back-page .review-ask { margin-top: 0.4in; font-size: 10.5pt; }
+.day-map { display: block; width: 100%; max-height: 7.1in; object-fit: contain; margin: 12pt 0 0; break-before: page; break-inside: avoid; }
+figure { margin: 0; }
+figcaption { font-family: 'Noto Sans'; font-size: 8pt; color: #555; margin-top: 4pt; }
+section.chapter > p:last-child, section.chapter > ul + p { break-before: avoid; }
+
+/* Nested lists default to a hollow bullet (U+25E6), which Noto Serif lacks: it fell back to Times (#9). */
+ul ul { list-style-type: disc; }
+
+/* #9 review fixes (Napa & Sonoma) */
+.photo-credit { font-family: 'Noto Sans', sans-serif; font-size: 7.5pt; color: #555; margin: -10pt 0 12pt; }
+.nowrap { white-space: nowrap; }
+.toc .toc-extra { list-style: none; padding-left: 0; font-size: 11pt; line-height: 1.9; margin-top: 6pt; color: #4A5A50; }
+.glance table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 8pt; }
+.glance th, .glance td { border-bottom: 0.5pt solid #9aa; padding: 3pt 4pt; text-align: left; vertical-align: top; }
+.glance h2 { margin-top: 10pt; }
+.credits li { font-size: 9pt; word-break: break-word; }
+/* #9 review item 6: maps flow under the day's last text instead of forcing a near-empty page */
+.day-map { break-before: auto; max-height: 5.4in; margin-top: 10pt; }
+.glance { font-size: 9.5pt; } .glance h1 { margin-bottom: 8pt; }
+.glance table th:first-child, .glance table td:first-child { width: 0.35in; }
+.glance table th:nth-child(2), .glance table td:nth-child(2) { width: 1.35in; }
+.glance ul { margin-bottom: 4pt; } .glance li { margin-bottom: 1pt; }
+
+/* Gate C review (#40, score 3.35) */
+.toc a { color: inherit; text-decoration: none; }
+.toc a::after { content: leader('.') target-counter(attr(href), page); }
+.credits a, a.uri { hyphens: none; overflow-wrap: anywhere; word-break: normal; }
+blockquote { break-inside: avoid; }
+img.day-map { break-before: avoid !important; margin-top: 8pt; }
+figure { break-inside: avoid; }
+figure figcaption { display: none; }
+.credits a, a.uri { color: #000; text-decoration: none; }
+.recap { break-inside: avoid; border: 0.75pt solid #999; border-radius: 3pt; padding: 8pt 10pt; margin: 14pt 0 10pt; font-size: 9pt; }
+.recap p { margin: 0 0 5pt; }
+.recap ol { margin: 0 0 5pt 14pt; padding: 0; }
+.notes-area { break-inside: avoid; font-size: 9pt; color: #555; }
+.notes-area p { margin: 0 0 4pt; }
+.notes-area .rule { border-bottom: 0.5pt solid #bbb; height: 17pt; }
+.notes-area .rule p { margin: 0; line-height: 1; }
