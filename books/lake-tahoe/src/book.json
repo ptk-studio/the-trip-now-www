@@ -33,19 +33,25 @@
       "file": "02-day1",
       "image": "images/day1-vikingsholm.jpg",
       "map": "images/map-day1.png",
-      "map_title": "Day 1"
+      "map_title": "Day 1",
+      "recap": "02-day1.recap",
+      "notes_lines": 10
     },
     {
       "file": "03-day2",
       "image": "images/day2-tahoecity.jpg",
       "map": "images/map-day2.png",
-      "map_title": "Day 2"
+      "map_title": "Day 2",
+      "recap": "03-day2.recap",
+      "notes_lines": 15
     },
     {
       "file": "04-day3",
       "image": "images/day3-donner.jpg",
       "map": "images/map-day3.png",
-      "map_title": "Day 3"
+      "map_title": "Day 3",
+      "recap": "04-day3.recap",
+      "notes_lines": 11
     },
     {
       "file": "05-practical",
@@ -106,5 +112,6 @@
   "no_hyphen_addresses": true,
   "relative_paths": true,
   "autolink_credits": true,
-  "map_after_title": true
+  "map_after_title": true,
+  "day_recap": true
 }

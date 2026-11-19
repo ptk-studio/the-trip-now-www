@@ -103,6 +103,9 @@ def chapters():
                 md = f"{head}\n\n{fig}\n\n{rest}"
             else:
                 md += f"\n\n{fig}\n"
+        if CFG.get("day_recap") and ch.get("recap"):   # opt-in: an "at a glance" box and a ruled Notes area at the end of the chapter (text already in the chapter)
+            rec = reader_text((SRC / "chapters" / f"{ch['recap']}.md").read_text(encoding="utf-8"))
+            md += f"\n\n::: {{.recap}}\n{rec}\n:::\n\n::: {{.notes-area}}\n**Notes**\n\n" + "\n\n".join(["::: {.rule}\n&nbsp;\n:::"] * int(ch.get("notes_lines", 8))) + "\n:::\n"
         yield ch, md
 
 

@@ -87,6 +87,63 @@ Just north of Emerald Bay, D.L. Bliss State Park reopened for camping and day us
 Prices, hours and seasons change, so check before you go.
 
 
+::: {.recap}
+**Day 1 at a glance**
+
+1. **Stateline and Heavenly Village:** gondola about 10 am to 5 pm in summer 2025; hours change each year.
+2. **Emerald Bay and Vikingsholm:** 1-mile trail from the Highway 89 lot; parking about $10 a vehicle; house tours every half hour, 10:30 am to 4 pm (May 23 to September 30, 2026), about $18, first come, first served.
+3. **D.L. Bliss State Park:** day use sunrise to sunset, about $10 a vehicle; walkers only from October 1.
+
+**Stay:** Basecamp Hotel ([$]{.nowrap}), Coachman Hotel ([$$]{.nowrap}), Camp Richardson ([$–$$]{.nowrap}), Edgewood Tahoe ([$$$]{.nowrap}).
+**Eat:** Ernie's Coffee Shop ([$]{.nowrap}).
+
+:::
+
+::: {.notes-area}
+**Notes**
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+:::
+
+
 # Day 2: The West Shore to Tahoe City
 
 ![](epub-img/day2-tahoecity.jpg)
@@ -124,6 +181,83 @@ North of Tahoe City, Olympic Valley is home to Palisades Tahoe. It was renamed P
 Prices, hours and seasons change, so check before you go.
 
 
+::: {.recap}
+**Day 2 at a glance**
+
+1. **Sugar Pine Point and the Ehrman Mansion:** house tours on the half hour, 10:30 am to 3:30 pm (May 23 to September 30, 2026), about 45 minutes, first come, first served.
+2. **Tahoe City and the Gatekeeper's Museum:** about April 1 to October 31, Wednesday to Sunday, 11 am to 4 pm; by appointment in winter.
+3. **Palisades Tahoe:** in Olympic Valley, north of Tahoe City.
+
+**Stay:** Granlibakken Tahoe ([$$]{.nowrap}).
+**Eat:** Fire Sign Cafe ([$]{.nowrap}).
+
+:::
+
+::: {.notes-area}
+**Notes**
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+:::
+
+
 # Day 3: Truckee and the North Shore
 
 ![](epub-img/day3-donner.jpg)
@@ -157,6 +291,67 @@ From the North Shore, Sand Harbor (a Nevada state park on the East Shore) is an 
 - **Moody's Bistro, Bar & Beats** ([$$–$$$]{.nowrap}): dinner in the Truckee Hotel, live music Thursday to Saturday.
 
 Prices, hours and seasons change, so check before you go.
+
+
+::: {.recap}
+**Day 3 at a glance**
+
+1. **Truckee's Commercial Row:** the brick buildings date mostly from the 1870s and 1880s.
+2. **Donner Memorial State Park:** open year-round; day use sunrise to sunset, about $10 a vehicle; visitor center 10 am to 5 pm daily.
+3. **Option, Sand Harbor:** from April 15 to October 15 a day-use reservation is needed to drive in between 8 and 10:30 am; entry about $10 (Nevada plates) or $15 in 2025.
+
+**Stay:** The Truckee Hotel ([$–$$]{.nowrap}), Gravity Haus Truckee-Tahoe ([$$–$$$]{.nowrap}).
+**Eat:** Squeeze In ([$]{.nowrap}), Moody's Bistro, Bar & Beats ([$$–$$$]{.nowrap}).
+
+:::
+
+::: {.notes-area}
+**Notes**
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+
+::: {.rule}
+&nbsp;
+:::
+:::
 
 
 # Practical Matters: Getting There, Getting Around, Winter

@@ -64,3 +64,10 @@ img.day-map { break-before: avoid !important; margin-top: 8pt; }
 figure { break-inside: avoid; }
 figure figcaption { display: none; }
 .credits a, a.uri { color: #000; text-decoration: none; }
+.recap { break-inside: avoid; border: 0.75pt solid #999; border-radius: 3pt; padding: 8pt 10pt; margin: 14pt 0 10pt; font-size: 9pt; }
+.recap p { margin: 0 0 5pt; }
+.recap ol { margin: 0 0 5pt 14pt; padding: 0; }
+.notes-area { break-inside: avoid; font-size: 9pt; color: #555; }
+.notes-area p { margin: 0 0 4pt; }
+.notes-area .rule { border-bottom: 0.5pt solid #bbb; height: 17pt; }
+.notes-area .rule p { margin: 0; line-height: 1; }
