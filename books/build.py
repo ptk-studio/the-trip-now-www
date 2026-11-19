@@ -58,7 +58,8 @@ def reader_text(md: str) -> str:
 
 # ---------------------------------------------------------------- photo credits (book.json "photo_credits": true)
 LICENCE_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/", "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
-               "CC0": "https://creativecommons.org/publicdomain/zero/1.0/", "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/"}
+               "CC0": "https://creativecommons.org/publicdomain/zero/1.0/", "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/",
+               "CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/"}
 
 
 def credits() -> dict:
@@ -189,7 +190,7 @@ def build_interior() -> Path:
             hints = "".join(f'<div class="line example">{html.escape(x)}</div>' for x in p.get("examples", []))
             lines = "".join('<div class="line"></div>' for _ in range(22 - len(p.get("examples", []))))
             parts.append(f'<section class="planner"><h2>{html.escape(p["title"])}</h2>'
-                         f'<p class="planner-row">Date ____________</p>{hints}{lines}</section>')
+                         f'{"<p class=planner-row>Date ____________</p>" if p.get("date", True) else ""}{hints}{lines}</section>')
         for _ in range(CFG.get("notes_pages", 0)):
             lines = "".join('<div class="line"></div>' for _ in range(24))
             parts.append(f'<section class="planner"><h2>Notes</h2>{lines}</section>')

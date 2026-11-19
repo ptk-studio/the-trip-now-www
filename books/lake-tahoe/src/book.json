@@ -1,0 +1,105 @@
+{
+  "author": "TheTripNow",
+  "lang": "en",
+  "rights": "© 2026 TheTripNow. All rights reserved.",
+  "trim_in": [
+    6,
+    9
+  ],
+  "paper": "white",
+  "spine_in_per_page": {
+    "white": 0.002252,
+    "cream": 0.0025
+  },
+  "bleed_in": 0.125,
+  "epub_image_max_px": 1000,
+  "epub_jpeg_quality": 70,
+  "photo_credits": true,
+  "nowrap_prices": true,
+  "toc_extras_unnumbered": true,
+  "back_url": "thetripnow.com",
+  "map_credit": "Maps: © OpenStreetMap contributors, available under the Open Database License (openstreetmap.org/copyright).",
+  "title": "Lake Tahoe in 3 Days",
+  "subtitle": "A TheTripNow pocket itinerary",
+  "cover_image": "images/cover.jpg",
+  "utm_campaign": "lake-tahoe",
+  "back_blurb": "Three days around Lake Tahoe. Start in South Lake Tahoe and Emerald Bay, follow the West Shore to Tahoe City, then finish in the railroad town of Truckee and on the North Shore. Where to stay and eat, how to get around without a car, a winter box for chains and closures, and a \"Did you know?\" at the stops. Practical, checked and pocket-sized.",
+  "chapters": [
+    {
+      "file": "01-intro",
+      "image": null
+    },
+    {
+      "file": "02-day1",
+      "image": "images/day1-vikingsholm.jpg",
+      "map": "images/map-day1.png",
+      "map_title": "Day 1"
+    },
+    {
+      "file": "03-day2",
+      "image": "images/day2-tahoecity.jpg",
+      "map": "images/map-day2.png",
+      "map_title": "Day 2"
+    },
+    {
+      "file": "04-day3",
+      "image": "images/day3-donner.jpg",
+      "map": "images/map-day3.png",
+      "map_title": "Day 3"
+    },
+    {
+      "file": "05-practical",
+      "image": null
+    },
+    {
+      "file": "06-packing",
+      "image": null
+    }
+  ],
+  "checked": "18 November 2026",
+  "at_a_glance": "at-a-glance",
+  "sources_note": "Every fact in this guide was checked on 18 November 2026 against official and published sources. The full list of sources is at thetripnow.com/sources/lake-tahoe.",
+  "back_note": "review",
+  "planners": [
+    {
+      "title": "Day 1 planner: South Lake Tahoe and Emerald Bay",
+      "examples": [
+        "8 am  Ernie's Coffee Shop · breakfast",
+        "10:30 am  Vikingsholm tour (first come, first served)",
+        "Winter: chains in the car, check the road first"
+      ]
+    },
+    {
+      "title": "Day 2 planner: The West Shore to Tahoe City",
+      "examples": [
+        "10:30 am  Ehrman Mansion tour (summer)",
+        "1 pm  Lunch at Fire Sign Cafe, Tahoe City"
+      ]
+    },
+    {
+      "title": "Day 3 planner: Truckee and the North Shore",
+      "examples": [
+        "10 am  Commercial Row, Truckee"
+      ]
+    },
+    {
+      "title": "Bookings and confirmations",
+      "date": false,
+      "examples": [
+        "Sand Harbor: day-use reservation to drive in 8–10:30 am (Apr 15–Oct 15)",
+        "Hotel: name, dates, confirmation number",
+        "Tour or gondola: day, time, price"
+      ]
+    },
+    {
+      "title": "Packing checklist",
+      "date": false,
+      "examples": [
+        "Layers, including a warm jacket for evenings",
+        "Comfortable shoes for trails and steep paths",
+        "Winter: chains in the car, even with 4WD or AWD"
+      ]
+    }
+  ],
+  "notes_pages": 1
+}
