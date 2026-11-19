@@ -23,6 +23,10 @@
   pitch: Three relaxed days in wine country - downtown Napa and Carneros, up the valley to Calistoga, then historic Sonoma and Glen Ellen, with maps and where to stay and eat.
   date: 2026-11-18
   page: /guides/napa-sonoma/
-  # status goes to live, and the 2 formats get their Amazon URLs, when the Kindle edition is on sale (T2-14).
-  status: coming-soon
-  formats: []
+  # Kindle edition on sale 2026-11-19 (ASIN B0HS5X419Z, $3.99); the paperback is added when it is on sale (2026-12-19).
+  status: live
+  formats:
+    - name: Kindle edition
+      url: https://www.amazon.com/dp/B0HS5X419Z
+      price: "$3.99"
+      isbn:
